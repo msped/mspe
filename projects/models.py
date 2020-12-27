@@ -5,8 +5,8 @@ from django.db import models
 class Project(models.Model):
     """Model for a project"""
     name = models.CharField(max_length=100)
-    github_link = models.URLField(max_length=250)
-    live_link = models.URLField(max_length=250)
+    github_link = models.URLField(max_length=250, blank=True, null=True)
+    live_link = models.URLField(max_length=250, blank=True, null=True)
     description = models.TextField()
     notes = models.TextField()
 

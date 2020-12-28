@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+All Projects
+{% endblock title %}
+
+{% block meta %}
+<meta name="description" content="">
+{% endblock meta%}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/projects_view.css' %}">
+{% endblock css %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="col-12 mt-10 ml-10">
+        <a class="btn btn-primary" href="{{ request.META.HTTP_REFERER }}"><i class="fas fa-chevron-left"></i> Go back</a>
+    </div>
+    <div class="text-center">
+        <h1 class="roboto weight-500">{{project.name}}</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-sm-12">
+            <p class="pl-15 pb-15 pr-15">{{project.description}}</p>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <a href="{{ project.github_link }}" class="btn">Github Link</a>
+                </div>
+                {% if project.live_link %}
+                <div class="col-12 text-center mt-15">
+                    <a href="{{ project.live_link }}" class="btn">Live Link</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <!--Tasks-->
+    <div class="row">
+        <div class="col-12">
+            <div class="text-center">
+                <h3 class="roboto weight-500">Tasks</h3>
+            </div>
+            <div class="tasks row">
+                <div class="open-tasks col-md-6 col-sm-12">
+                    <h4 class="text-center roboto weight-500">Open</h4>
+                    {% for t in tasks %}
+                    {% if t.closed == False %}
+                    <div class="card col-md-6 col-sm-12">
+                        <h5 class="card-title"><a href="" class="nav-link">{{t.name}}</a></h5>
+                        <p>{{ t.description }}</p>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+                
+                <div class="closed-tasks col-md-6 col-sm-12">
+                    <h4 class="text-center roboto weight-500">Closed</h4>
+                    {% for t in tasks %}
+                    {% if t.closed %}
+                    <div class="card col-md-6 col-sm-12">
+                        <h5 class="card-title"><a href="" class="nav-link">{{t.name}}</a></h5>
+                        <p>{{ t.description }}</p>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <!--Issues-->
+    <div class="row">
+        <div class="col-12">
+            <div class="text-center">
+                <h3 class="roboto weight-500">Issues</h3>
+            </div>
+            <div class="tasks row">
+                <div class="open-tasks col-md-6 col-sm-12">
+                    <h4 class="text-center roboto weight-500">Open</h4>
+                    {% for i in issues %}
+                    {% if i.closed == False %}
+                    <div class="card col-md-6 col-sm-12">
+                        <h5 class="card-title mb-10"><a href="" class="nav-link">{{i.name}}</a></h5>
+                        <p>{{ i.description }}</p>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+                
+                <div class="closed-issues col-md-6 col-sm-12">
+                    <h4 class="text-center roboto weight-500">Closed</h4>
+                    {% for i in issues %}
+                    {% if i.closed %}
+                    <div class="card col-md-6 col-sm-12">
+                        <h5 class="card-title"><a href="" class="nav-link">{{i.name}}</a></h5>
+                        <p>{{ i.description }}</p>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="notes">
+        <p>{{ project.notes }}</p>
+    </div>
+</div>
+{% endblock content %}

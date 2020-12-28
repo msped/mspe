@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from django.http import HttpResponse
 from django.template import loader
+from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
 from .models import Project, Issue, Task
 
@@ -72,3 +73,31 @@ def ToggleTask(request, t_id):
         }
     )
     return HttpResponse(template)
+
+class TaskEdit(View):
+    template_name = 'task_edit.html'
+    def get(self, request, t_id):
+        task = Task.objects.get(id=t_id)
+        context = {
+            'task': task
+        }
+        return render(request, self.template_name, context)
+
+    def post(self, request, t_id):
+        task = Task.objects.get(id=t_id)
+        task.name = request.POST['name']
+        task.description = request.POST['description']
+        task.notes = request.POST['notes']
+        task.save()
+        messages.success(request, "Task Updated")
+        return redirect('task_view', t_id=task.id)
+
+def DeleteTask(request, t_id):
+    task = Task.objects.get(id=t_id)
+    p_id = task.id
+    task.delete()
+    messages.success(
+        request,
+        "Task Deleted"
+    )
+    return redirect('project_view', p_id=p_id)

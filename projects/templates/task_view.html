@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+View Task {{task.id}}
+{% endblock title %}
+
+{% block meta %}
+<meta name="description" content="">
+{% endblock meta%}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/projects_view.css' %}">
+<script src="https://unpkg.com/htmx.org@1.0.2"></script>
+{% endblock css %}
+
+{% block content %}
+<div class="container">
+    <div class="col-12 mt-10 ml-10">
+        <a class="btn btn-primary" href="{% url 'project_view' p_id=task.project.id %}"><i class="fas fa-chevron-left"></i> Go back</a>
+    </div>
+    <div class="text-center">
+        <h1 class="roboto weight-500">{{task.name}}</h1>
+    </div>
+    <div class="row min-height">
+        <div class="col-md-10 col-sm-12">
+            <label for="#description">Description</label>
+            <p id="description">{{task.description}}</p>
+        </div>
+        <div class="col-md-2 col-sm-12">
+            {% if task.closed %}
+            <div class="btn btn-danger" hx-post="{% url 'toggle_task' t_id=task.id %}" hx-trigger="click" hx-swap="outerHTML">Task Closed</div>
+            {% else %}
+            <div class="btn btn-success" hx-post="{% url 'toggle_task' t_id=task.id %}" hx-trigger="click" hx-swap="outerHTML">Task Open</div>
+            {% endif %}
+        </div>
+    </div>
+    <div class="notes min-height">
+        <label for="#notes">Notes</label>
+        <p id="#notes">{{ task.notes }}</p>
+    </div>
+
+    <div class="text-center">
+        <a href="{% url 'task_edit' t_id=task.id %}" class="btn btn-secondary">Edit</a>
+    </div>
+</div>
+{% endblock content %}

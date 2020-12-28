@@ -19,3 +19,7 @@
 .weight-900 {
     font-weight: 900;
 }
+
+.min-height {
+    min-height: 25vh;
+}

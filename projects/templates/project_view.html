@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}
-All Projects
+View Project
 {% endblock title %}
 
 {% block meta %}
@@ -50,7 +50,7 @@ All Projects
                     {% for t in tasks %}
                     {% if t.closed == False %}
                     <div class="card col-md-6 col-sm-12">
-                        <h5 class="card-title"><a href="" class="nav-link">{{t.name}}</a></h5>
+                        <h5 class="card-title"><a href="{% url 'task_view' t_id=t.id %}" class="nav-link">{{t.name}}</a></h5>
                         <p>{{ t.description }}</p>
                     </div>
                     {% endif %}
@@ -62,7 +62,7 @@ All Projects
                     {% for t in tasks %}
                     {% if t.closed %}
                     <div class="card col-md-6 col-sm-12">
-                        <h5 class="card-title"><a href="" class="nav-link">{{t.name}}</a></h5>
+                        <h5 class="card-title"><a href="{% url 'issue_view' i_id=i.id %}" class="nav-link">{{t.name}}</a></h5>
                         <p>{{ t.description }}</p>
                     </div>
                     {% endif %}

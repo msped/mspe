@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 from django.contrib.auth.decorators import login_required
-from .views import AllProjects, ProjectView, TaskView, IssueView, ToggleTask, TaskEdit, DeleteTask, ToggleIssue, IssueEdit, DeleteIssue, AddTask
+from .views import AllProjects, ProjectView, TaskView, IssueView, ToggleTask, TaskEdit, DeleteTask, ToggleIssue, IssueEdit, DeleteIssue, AddTask, AddIssue
 
 urlpatterns = [
     path('', AllProjects.as_view(), name="all_projects"),
@@ -15,4 +15,5 @@ urlpatterns = [
     path('issue/toggle-issue/<int:i_id>', ToggleIssue, name="toggle_issue"),
     path('issue/<int:i_id>/edit', IssueEdit.as_view(), name="issue_edit"),
     path('issue/<int:i_id>/delete', DeleteIssue, name="delete_issue"),
+    path('<int:p_id>/add/issue', AddIssue.as_view(), name="add_issue"),
 ]

@@ -47,7 +47,7 @@ class IssueView(View):
     def get(self, request, i_id):
         issues = Issue.objects.get(id=i_id)
         context = {
-            'issues': issues,
+            'issue': issues,
         }
         return render(request, self.template_name, context)
 
@@ -68,6 +68,29 @@ def ToggleTask(request, t_id):
         'task_toggle_button.html',
         {
             'task_id': task_id,
+            'state': state,
+            'toggle': toggle
+        }
+    )
+    return HttpResponse(template)
+
+@csrf_exempt
+def ToggleIssue(request, i_id):
+    issue = Issue.objects.get(id=i_id)
+    issue_id = issue.id
+    if issue.closed:
+        issue.closed = False
+        state = 'success'
+        toggle = 'Open'
+    else:
+        issue.closed = True
+        state = 'danger'
+        toggle = 'Closed'
+    issue.save()
+    template = loader.render_to_string(
+        'issue_toggle_button.html',
+        {
+            'issue_id': issue_id,
             'state': state,
             'toggle': toggle
         }

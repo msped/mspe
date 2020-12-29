@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+View Issue {{issue.id}}
+{% endblock title %}
+
+{% block meta %}
+<meta name="description" content="">
+{% endblock meta%}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/projects_view.css' %}">
+<script src="https://unpkg.com/htmx.org@1.0.2"></script>
+{% endblock css %}
+
+{% block content %}
+<div class="container">
+    <div class="mt-10 ml-10">
+        <a class="btn btn-primary" href="{% url 'project_view' p_id=issue.project.id %}"><i class="fas fa-chevron-left"></i> Go back</a>
+    </div>
+    <div class="text-center">
+        <h1 class="roboto weight-500">{{issue.name}}</h1>
+    </div>
+    <div class="row min-height">
+        <div class="col-9">
+            <p>Issue Type: {{issue.get_issue_type_display}}</p>
+        </div>
+        <div class="col-3">
+            <div class="text-center">
+                {% if issue.closed %}
+                <div class="btn btn-danger" hx-post="{% url 'toggle_issue' i_id=issue.id %}" hx-trigger="click" hx-swap="outerHTML">Issue Closed</div>
+                {% else %}
+                <div class="btn btn-success" hx-post="{% url 'toggle_issue' i_id=issue.id %}" hx-trigger="click" hx-swap="outerHTML">Issue Open</div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-md-12 col-sm-12 mt-15">
+            <label for="#description">Description</label>
+            <p id="description" class="min-height">{{issue.description}}</p>
+        </div>
+    </div>
+    <div class="notes min-height">
+        <label for="#notes">Notes</label>
+        <p id="#notes">{{ issue.notes }}</p>
+    </div>
+
+    <div class="text-center mb-15">
+        <a href="" class="btn btn-secondary">Edit</a>
+    </div>
+</div>
+{% endblock content %}

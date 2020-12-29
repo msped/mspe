@@ -23,18 +23,16 @@ class Task(models.Model):
     def __str__(self):
         return self.name
 
+class IssueTypes(models.Model):
+    option = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.option
+
 class Issue(models.Model):
-
-    class IssueTypes(models.TextChoices):
-        BUG = '1', 'Bug'
-        DOCS = '2', 'Documentation'
-        ENHANCEMENT = '3', 'Enchancement'
-        WONTFIX = '4', 'Wont Fix'
-        ERROR = '5', 'Error'
-
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
-    issue_type = models.CharField(max_length=12, choices=IssueTypes.choices, default='1')
+    issue_type = models.ForeignKey(IssueTypes, on_delete=models.CASCADE)
     closed = models.BooleanField(default=False)
     description = models.TextField()
     notes = models.TextField(blank=True, null=True)

@@ -23,3 +23,7 @@
 .min-height {
     min-height: 25vh;
 }
+
+.list-style-none {
+    list-style: none;
+}

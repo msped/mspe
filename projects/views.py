@@ -156,3 +156,27 @@ def DeleteIssue(request, i_id):
         "Issue Deleted"
     )
     return redirect('project_view', p_id=p_id)
+
+class AddTask(View):
+    template_name = 'add_task.html'
+    def get(self, request, p_id):
+        project = Project.objects.get(id=p_id)
+        context = {
+            'project': project
+        }
+        return render(request, self.template_name, context)
+
+    def post(self, request, p_id):
+        project = Project.objects.get(id=p_id)
+        task = Task.objects.create(
+            project=project,
+            name=request.POST['name'],
+            description=request.POST['description'],
+            notes=request.POST['notes']
+        )
+        task.save()
+        messages.success(
+            request,
+            'Added New Task'
+        )
+        return redirect('task_view', t_id=task.id)        

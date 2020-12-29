@@ -41,6 +41,7 @@ Edit Task {{task.id}}
 
             <div class="text-center">
                 <button type="submit" class="btn btn-secondary">Update</button>
+                <a href="{% url 'task_view' t_id=task.id%}" class="btn btn-primary">Cancel</a>
                 <a href="{% url 'delete_task' t_id=task.id%}" class="btn btn-danger">Delete</a>
             </div>
         </form>

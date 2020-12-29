@@ -47,7 +47,7 @@ Edit Issue {{issue.id}}
                 <textarea id="#notes" name="notes" class="form-control">{{ issue.notes }}</textarea>
             </div>
 
-            <div class="text-center">
+            <div class="text-center mb-15">
                 <button type="submit" class="btn btn-secondary">Update</button>
                 <a href="{% url 'issue_view' i_id=issue.id %}" class="btn btn-primary">Cancel</a>
                 <a href="{% url 'delete_issue' i_id=issue.id%}" class="btn btn-danger">Delete</a>

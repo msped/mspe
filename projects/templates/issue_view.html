@@ -23,7 +23,7 @@ View Issue {{issue.id}}
     </div>
     <div class="row min-height">
         <div class="col-9">
-            <p>Issue Type: {{issue.get_issue_type_display}}</p>
+            <p>Issue Type: {{issue.issue_type.option}}</p>
         </div>
         <div class="col-3">
             <div class="text-center">
@@ -45,7 +45,7 @@ View Issue {{issue.id}}
     </div>
 
     <div class="text-center mb-15">
-        <a href="" class="btn btn-secondary">Edit</a>
+        <a href="{% url 'issue_edit' i_id=issue.id%}" class="btn btn-secondary">Edit</a>
     </div>
 </div>
 {% endblock content %}

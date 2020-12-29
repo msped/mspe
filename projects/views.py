@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from django.template import loader
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
-from .models import Project, Issue, Task
+from .models import Project, Issue, Task, IssueTypes
 
 # Create your views here.
 
@@ -124,3 +124,25 @@ def DeleteTask(request, t_id):
         "Task Deleted"
     )
     return redirect('project_view', p_id=p_id)
+
+class IssueEdit(View):
+    template_name = 'issue_edit.html'
+    def get(self, request, i_id):
+        issue = Issue.objects.get(id=i_id)
+        issue_types = IssueTypes.objects.all()
+        context = {
+            'issue': issue,
+            'issue_types': issue_types
+        }
+        return render(request, self.template_name, context)
+
+    def post(self, request, i_id):
+        issue = Issue.objects.get(id=i_id)
+        issue_type = IssueTypes.objects.get(id=int(request.POST['issue_type']))
+        issue.name = request.POST['name']
+        issue.description = request.POST['description']
+        issue.issue_type = issue_type
+        issue.notes = request.POST['notes']
+        issue.save()
+        messages.success(request, "Task Updated")
+        return redirect('issue_view', i_id=issue.id)

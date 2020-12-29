@@ -117,7 +117,7 @@ class TaskEdit(View):
 
 def DeleteTask(request, t_id):
     task = Task.objects.get(id=t_id)
-    p_id = task.id
+    p_id = task.project.id
     task.delete()
     messages.success(
         request,
@@ -146,3 +146,13 @@ class IssueEdit(View):
         issue.save()
         messages.success(request, "Task Updated")
         return redirect('issue_view', i_id=issue.id)
+
+def DeleteIssue(request, i_id):
+    issue = Issue.objects.get(id=i_id)
+    p_id = issue.project.id
+    issue.delete()
+    messages.success(
+        request,
+        "Issue Deleted"
+    )
+    return redirect('project_view', p_id=p_id)

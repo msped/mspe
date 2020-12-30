@@ -179,4 +179,32 @@ class AddTask(View):
             request,
             'Added New Task'
         )
-        return redirect('task_view', t_id=task.id)        
+        return redirect('task_view', t_id=task.id)
+
+class AddIssue(View):
+    template_name = 'add_issue.html'
+    def get(self, request, p_id):
+        project = Project.objects.get(id=p_id)
+        issue_types = IssueTypes.objects.all()
+        context = {
+            'project': project,
+            'issue_types': issue_types
+        }
+        return render(request, self.template_name, context)
+
+    def post(self, request, p_id):
+        project = Project.objects.get(id=p_id)
+        issue_type = IssueTypes.objects.get(id=int(request.POST['issue_type']))
+        issue = Issue.objects.create(
+            project=project,
+            name=request.POST['name'],
+            issue_type=issue_type,
+            description=request.POST['description'],
+            notes=request.POST['notes']
+        )
+        issue.save()
+        messages.success(
+            request,
+            'Added New Issue'
+        )
+        return redirect('issue_view', i_id=issue.id)   

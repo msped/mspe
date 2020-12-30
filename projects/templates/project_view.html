@@ -13,7 +13,7 @@ View Project
 {% endblock css %}
 
 {% block content %}
-<div class="container-fluid">
+<div class="container">
     <div class="col-12 mt-10 ml-10">
         <a class="btn btn-primary" href="{{ request.META.HTTP_REFERER }}"><i class="fas fa-chevron-left"></i> Go back</a>
     </div>
@@ -42,31 +42,36 @@ View Project
     <div class="row">
         <div class="col-12">
             <div class="text-center">
-                <h3 class="roboto weight-500">Tasks</h3>
+                <h3 class="roboto weight-500 d-inline-block">Tasks</h3>
+                <a href="{% url 'add_task' p_id=project.id %}" class="btn btn-success d-inline-block float-right mt-10">Add Task</a>
             </div>
             <div class="tasks row">
                 <div class="open-tasks col-md-6 col-sm-12">
                     <h4 class="text-center roboto weight-500">Open</h4>
-                    {% for t in tasks %}
-                    {% if t.closed == False %}
-                    <div class="card col-md-6 col-sm-12">
-                        <h5 class="card-title"><a href="{% url 'task_view' t_id=t.id %}" class="nav-link">{{t.name}}</a></h5>
-                        <p>{{ t.description }}</p>
+                    <div class="row">
+                        {% for t in tasks %}
+                        {% if t.closed == False %}
+                        <div class="card col-md-6 col-sm-12">
+                            <h5 class="card-title"><a href="{% url 'task_view' t_id=t.id %}" class="nav-link">{{t.name}}</a></h5>
+                            <p>{{ t.description }}</p>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
                     </div>
-                    {% endif %}
-                    {% endfor %}
                 </div>
                 
                 <div class="closed-tasks col-md-6 col-sm-12">
                     <h4 class="text-center roboto weight-500">Closed</h4>
-                    {% for t in tasks %}
-                    {% if t.closed %}
-                    <div class="card col-md-6 col-sm-12">
-                        <h5 class="card-title"><a href="{% url 'task_view' t_id=t.id %}" class="nav-link">{{t.name}}</a></h5>
-                        <p>{{ t.description }}</p>
+                    <div class="row">
+                        {% for t in tasks %}
+                        {% if t.closed %}
+                        <div class="card col-md-6 col-sm-12">
+                            <h5 class="card-title"><a href="{% url 'task_view' t_id=t.id %}" class="nav-link">{{t.name}}</a></h5>
+                            <p>{{ t.description }}</p>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
                     </div>
-                    {% endif %}
-                    {% endfor %}
                 </div>
             </div>
         </div>
@@ -76,31 +81,36 @@ View Project
     <div class="row">
         <div class="col-12">
             <div class="text-center">
-                <h3 class="roboto weight-500">Issues</h3>
+                <h3 class="roboto weight-500 d-inline-block">Issues</h3>
+                <a href="{% url 'add_issue' p_id=project.id %}" class="btn btn-success d-inline-block float-right mt-10">Add Task</a>
             </div>
             <div class="tasks row">
                 <div class="open-tasks col-md-6 col-sm-12">
                     <h4 class="text-center roboto weight-500">Open</h4>
-                    {% for i in issues %}
-                    {% if i.closed == False %}
-                    <div class="card col-md-6 col-sm-12">
-                        <h5 class="card-title mb-10"><a href="{% url 'issue_view' i_id=i.id %}" class="nav-link">{{i.name}}</a></h5>
-                        <p>{{ i.description }}</p>
+                    <div class="row">
+                        {% for i in issues %}
+                        {% if i.closed == False %}
+                        <div class="card col-md-6 col-sm-12">
+                            <h5 class="card-title mb-10"><a href="{% url 'issue_view' i_id=i.id %}" class="nav-link">{{i.name}}</a></h5>
+                            <p>{{ i.description }}</p>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
                     </div>
-                    {% endif %}
-                    {% endfor %}
                 </div>
                 
                 <div class="closed-issues col-md-6 col-sm-12">
                     <h4 class="text-center roboto weight-500">Closed</h4>
-                    {% for i in issues %}
-                    {% if i.closed %}
-                    <div class="card col-md-6 col-sm-12">
-                        <h5 class="card-title"><a href="{% url 'issue_view' i_id=i.id %}" class="nav-link">{{i.name}}</a></h5>
-                        <p>{{ i.description }}</p>
+                    <div class="row">
+                        {% for i in issues %}
+                        {% if i.closed %}
+                        <div class="card col-md-6 col-sm-12">
+                            <h5 class="card-title"><a href="{% url 'issue_view' i_id=i.id %}" class="nav-link">{{i.name}}</a></h5>
+                            <p>{{ i.description }}</p>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
                     </div>
-                    {% endif %}
-                    {% endfor %}
                 </div>
             </div>
         </div>

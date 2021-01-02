@@ -3,6 +3,7 @@ from django.views import View
 from django.http import HttpResponse
 from django.template import loader
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from .models import Project, Issue, Task, IssueTypes
 
@@ -52,6 +53,7 @@ class IssueView(View):
         return render(request, self.template_name, context)
 
 @csrf_exempt
+@login_required
 def ToggleTask(request, t_id):
     task = Task.objects.get(id=t_id)
     task_id = task.id
@@ -75,6 +77,7 @@ def ToggleTask(request, t_id):
     return HttpResponse(template)
 
 @csrf_exempt
+@login_required
 def ToggleIssue(request, i_id):
     issue = Issue.objects.get(id=i_id)
     issue_id = issue.id
@@ -115,6 +118,7 @@ class TaskEdit(View):
         messages.success(request, "Task Updated")
         return redirect('task_view', t_id=task.id)
 
+@login_required
 def DeleteTask(request, t_id):
     task = Task.objects.get(id=t_id)
     p_id = task.project.id
@@ -144,9 +148,10 @@ class IssueEdit(View):
         issue.issue_type = issue_type
         issue.notes = request.POST['notes']
         issue.save()
-        messages.success(request, "Task Updated")
+        messages.success(request, "Issue Updated")
         return redirect('issue_view', i_id=issue.id)
 
+@login_required
 def DeleteIssue(request, i_id):
     issue = Issue.objects.get(id=i_id)
     p_id = issue.project.id

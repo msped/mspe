@@ -27,11 +27,11 @@ View Project
         <div class="col-md-4 col-sm-12">
             <div class="row">
                 <div class="col-12 text-center">
-                    <a href="{{ project.github_link }}" class="btn">Github Link</a>
+                    <a href="{{ project.github_link }}" target="_blank" class="btn">Github Link</a>
                 </div>
                 {% if project.live_link %}
                 <div class="col-12 text-center mt-15">
-                    <a href="{{ project.live_link }}" class="btn">Live Link</a>
+                    <a href="{{ project.live_link }}" target="_blank" class="btn">Live Link</a>
                 </div>
                 {% endif %}
             </div>
@@ -117,6 +117,10 @@ View Project
     </div>
     <div class="notes">
         <p>{{ project.notes }}</p>
+    </div>
+
+    <div class="col-12 text-center">
+        <a href="{% url 'project_edit' p_id=project.id %}" class="btn btn-secondary">Edit</a>
     </div>
 </div>
 {% endblock content %}

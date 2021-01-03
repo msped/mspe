@@ -18,7 +18,7 @@ All Projects
         <h1 class="roboto weight-500">Projects</h1>
     </div>
     <div class="text-right">
-        <a href="" class="btn btn-success">Add New Project</a>
+        <a href="{% url 'add_project' %}" class="btn btn-success">Add New Project</a>
     </div>
     <div class="row">
         {% for p in projects %}

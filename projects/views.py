@@ -230,3 +230,28 @@ class AddProject(View):
         project.save()
         messages.success(request, "Project Created")
         return redirect('project_view', p_id=project.pk)
+
+class EditProject(View):
+    template_name = 'edit_project.html'
+    def get(self, request, p_id):
+        project = Project.objects.get(id=p_id)
+        context = {'project': project}
+        return render(request, self.template_name, context)
+
+    def post(self, request, p_id):
+        project = Project.objects.get(id=p_id)
+        project.name = request.POST['name']
+        project.description = request.POST['description']
+        project.github_link = request.POST.get('github_link')
+        project.live_link = request.POST.get('live_link')
+        project.notes = request.POST.get('notes')
+        project.save()
+        messages.success(request, 'Project Updated')
+        return redirect('project_view', p_id=p_id)
+
+@login_required
+def DeleteProject(request, p_id):
+    project = Project.objects.get(id=p_id)
+    project.delete()
+    messages.success(request, "Project Deleted")
+    return redirect('all_projects')

@@ -6,7 +6,7 @@ from .views import AllProjects, ProjectView, TaskView, IssueView, ToggleTask, Ta
 urlpatterns = [
     path('', login_required(AllProjects.as_view()), name="all_projects"),
     path('<int:p_id>/', login_required(ProjectView.as_view()), name="project_view"),
-    path('<int:p_id>/add/task', login_required(AddTask.as_view()), name="add_task"),
+    path('<int:p_id>/new/task', login_required(AddTask.as_view()), name="add_task"),
     path('task/<int:t_id>/', login_required(TaskView.as_view()), name="task_view"),
     path('task/toggle-task/<int:t_id>', ToggleTask, name="toggle_task"),
     path('task/<int:t_id>/edit', login_required(TaskEdit.as_view()), name="task_edit"),
@@ -15,5 +15,5 @@ urlpatterns = [
     path('issue/toggle-issue/<int:i_id>', ToggleIssue, name="toggle_issue"),
     path('issue/<int:i_id>/edit', login_required(IssueEdit.as_view()), name="issue_edit"),
     path('issue/<int:i_id>/delete', DeleteIssue, name="delete_issue"),
-    path('<int:p_id>/add/issue', login_required(AddIssue.as_view()), name="add_issue"),
+    path('<int:p_id>/new/issue', login_required(AddIssue.as_view()), name="add_issue"),
 ]

@@ -27,3 +27,7 @@
 .list-style-none {
     list-style: none;
 }
+
+textarea {
+    resize: none;
+}

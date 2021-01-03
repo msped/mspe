@@ -212,4 +212,21 @@ class AddIssue(View):
             request,
             'Added New Issue'
         )
-        return redirect('issue_view', i_id=issue.id)   
+        return redirect('issue_view', i_id=issue.id)
+
+class AddProject(View):
+    template_name = 'add_project.html'
+    def get(self, request):
+        return render(request, self.template_name)
+
+    def post(self, request):
+        project = Project.objects.create(
+            name=request.POST['name'],
+            github_link=request.POST.get('github_link'),
+            live_link=request.POST.get('live_link'),
+            description=request.POST['description'],
+            notes=request.POST.get('notes')
+        )
+        project.save()
+        messages.success(request, "Project Created")
+        return redirect('project_view', p_id=project.pk)

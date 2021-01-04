@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Edit Task {{task.id}}
+{% endblock title %}
+
+{% block meta %}
+<meta name="description" content="">
+{% endblock meta%}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/projects_view.css' %}">
+<script src="https://unpkg.com/htmx.org@1.0.2"></script>
+{% endblock css %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <form action="" method="POST" class="offset-md-3 col-md-6">
+            {% csrf_token %}
+            <div class="col-12 mt-10 ml-10">
+                <a class="btn btn-primary" href="{% url 'project_view' p_id=task.project.id %}"><i class="fas fa-chevron-left"></i> Go back</a>
+            </div>
+            <div class="text-center">
+                <h1 class="roboto weight-500">Edit Task</h1>
+            </div>
+            <div class="row min-height">
+                <div class="col-12 form-group">
+                    <label for="#name">Name</label>
+                    <input type="text" name="name" class="form-control" id="id" value="{{task.name}}">
+                </div>
+                <div class="col-12 form-group">
+                    <label for="#description">Description</label>
+                    <textarea id="description" name="description" class="form-control">{{task.description}}</textarea>
+                </div>
+            </div>
+            <div class="notes min-height form-group">
+                <label for="#notes">Notes</label>
+                <textarea id="#notes" name="notes" class="form-control">{{ task.notes }}</textarea>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-secondary">Update</button>
+                <a href="{% url 'task_view' t_id=task.id%}" class="btn btn-primary">Cancel</a>
+                <a href="{% url 'delete_task' t_id=task.id%}" class="btn btn-danger">Delete</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}

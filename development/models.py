@@ -22,7 +22,7 @@ class Development(models.Model):
         
 class DevelopmentTech(models.Model):
     """Link Tech to Development projects"""
-    developement = models.ForeignKey(Development, on_delete=models.CASCADE)
+    development = models.ForeignKey(Development, on_delete=models.CASCADE)
     tech = models.ForeignKey(Technologies, on_delete=models.CASCADE)
 
     def __str__(self):

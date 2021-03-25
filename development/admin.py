@@ -1,6 +1,16 @@
 from django.contrib import admin
-from .models import Development
+from .models import Development, DevelopmentTech, Technologies
 
 # Register your models here.
 
-admin.site.register(Development)
+class DevelopmentTechInlineAdmin(admin.TabularInline):
+    model = DevelopmentTech
+
+@admin.register(Development)
+class DevelopmentAdmin(admin.ModelAdmin):
+    inlines = [DevelopmentTechInlineAdmin]
+
+    class Meta:
+        model = Development
+
+admin.site.register(Technologies)

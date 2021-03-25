@@ -53,8 +53,8 @@
     <div class="sidebar">
       <div class="sidebar-menu">
         <a href="#" class="sidebar-link">Home</a>
-        <a href="#" class="sidebar-link">Development</a>
-        <a href="#" class="sidebar-link">Contact</a>
+        <a href="{% url 'development' %}" class="sidebar-link">Development</a>
+        <a href="{% url 'contact' %}" class="sidebar-link">Contact</a>
         {% if request.user.is_authenticated %}
         <br />
         <h5 class="sidebar-title">Backend</h5>

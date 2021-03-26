@@ -14,3 +14,4 @@ class DevelopmentAdmin(admin.ModelAdmin):
         model = Development
 
 admin.site.register(Technologies)
+admin.site.register(DevelopmentTech)

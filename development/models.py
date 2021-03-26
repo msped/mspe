@@ -26,4 +26,4 @@ class DevelopmentTech(models.Model):
     tech = models.ForeignKey(Technologies, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'{self.Developement} - {self.Tech}'
+        return f'{self.development} - {self.tech}'

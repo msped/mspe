@@ -41,31 +41,7 @@ Development
     <div class="development-tab-container my-20">
         <div class="timeline">
             {% for d in devs %}
-            {% if forloop.counter|divisibleby:2 %}
-            <div class="card my-10 left">
-                <div class="row">
-                    <div class="col-9">
-                        <div class="mr-10">
-                            <h2 class="card-title staal font-size-20 text-right">
-                                {{ d.name }}
-                            </h2>
-                            <div class="content">
-                                <p class="text-muted text-right">
-                                    Created: {{d.created_date|date:'m-Y'}}
-                                </p>
-                                <div class="text-right">
-                                    <div class="btn" hx-get="{% url 'get_project' p_id=d.id %}" href="#1" hx-target="#modal_template" hx-swap="innerHTML" onclick='halfmoon.toggleModal(1)'>View More</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <img src="{{d.logo.url}}" class="img-fluid rounded" alt="">
-                    </div>
-                </div>
-            </div>
-            {% else %}
-            <div class="card my-10 right">
+            <div class="card my-10 {% if forloop.counter|divisibleby:2 %}left{% else %}right{% endif %}">
                 <div class="row">
                     <div class="col-3">
                         <img src="{{d.logo.url}}" class="img-fluid rounded" alt="">
@@ -84,8 +60,7 @@ Development
                         </div>
                     </div>
                 </div>
-            </div> 
-            {% endif %}
+            </div>
             {% endfor %}
         </div>
     </div>

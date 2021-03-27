@@ -5,7 +5,7 @@ from django.template.loader import render_to_string
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from django.views import View
-from .models import Development
+from .models import Development, DevelopmentTech
 
 # Create your views here.
 
@@ -20,6 +20,7 @@ class GetProject(View):
     def dispatch(self, request, *args, **kwargs):
         return super(GetProject, self).dispatch(request, *args, **kwargs)
     def post(self, request, p_id):
-        data = Development.objects.get(id=p_id)
-        template = render_to_string('modal_template.html', {'data': data})
+        dev = Development.objects.get(id=p_id)
+        tech = DevelopmentTech.objects.filter(development=dev)
+        template = render_to_string('modal_template.html', {'dev': dev, 'tech': tech})
         return HttpResponse(template)

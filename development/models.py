@@ -12,6 +12,7 @@ class Technologies(models.Model):
 class Development(models.Model):
     """Model for development projects"""
     name = models.CharField(max_length=50)
+    logo = models.ImageField(upload_to="development_logos", blank=True, null=True, default="default.jpg")
     description = models.TextField()
     url = models.URLField(blank=True, null=True)
     github_link = models.URLField(blank=True, null=True)

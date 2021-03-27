@@ -1,0 +1,33 @@
+<h2 class="my-10 weight-700 staal">{{ dev.name }}</h2>
+<div class="font-size-16">
+    Date Created: {{ dev.created_date|date:'m/Y'}}
+</div>
+<br>
+<div class="font-size-18">
+    <h3 class="staal">Description</h3>
+    {{dev.description|linebreaks}}
+</div>
+<hr>
+<div class="text-center my-20">
+    {% if dev.url %}
+    <a href="{{dev.url}}" target="_blank" class="btn btn-primary">Go to Website</a>
+    {% endif %}
+    {% if dadevta.github_link %}
+    <a href="{{dev.github_link}}" target="_blank" class="btn btn-dark">GitHub Repo</a>
+    {% endif %}
+</div>
+<hr>
+<div class="tech-used">
+    <h4 class="staal">Technologies Used</h4>
+    <div class="row">
+        {% for t in tech %}
+        {% if t.tech.more_info %}
+        <a href="{{ t.tech.more_info }}" target="_blank" class="text-decoration-none text-center font-weight-bold col-2 tech-element">{{ t.tech }}</a>
+        {% else %}
+        <div target="_blank" class="text-center font-weight-bold col-2 tech-element">{{ t.tech }}</div>
+        {% endif %}
+        {% empty %}
+        <p class="col">No Technologies have been added yet.</p>
+        {% endfor %}
+    </div>
+</div>

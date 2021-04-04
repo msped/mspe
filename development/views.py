@@ -12,7 +12,7 @@ from .models import Development, DevelopmentTech
 class DevelopmentView(View):
     template_name = "development.html"
     def get(self, request):
-        dev_projects = Development.objects.all().order_by('-created_date')
+        dev_projects = Development.objects.all()
         return render(request, self.template_name, {'devs': dev_projects})
 
 class GetProject(View):

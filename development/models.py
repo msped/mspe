@@ -18,6 +18,9 @@ class Development(models.Model):
     github_link = models.URLField(blank=True, null=True)
     created_date = models.DateField()
 
+    class Meta:
+        ordering = ('-created_date',)
+
     def __str__(self):
         return self.name
         

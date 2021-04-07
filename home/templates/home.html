@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Full Stack Web Developer
+{% endblock title %}
+
+{% block meta %}
+<meta name="description" content="">
+{% endblock meta %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+{% endblock css %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card h-450">
+                <div class="card-title p-20 vertical-align">
+                    <h1 class="staal weight-700">Hi, I'm Matt! <br> A Full Stack Developer.</h1>
+                    <p class="p-0 m-0 text-muted font-size-8">See my <a herf="{% url 'development' %}">development projects.</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-12">
+            <div class="card d-flex">
+                <div class="rounded d-flex align-items-center justify-content-center" style="background-color: white">
+                    <img src="{{project.logo.url}}" alt="{{project.name}}" class="d-block w-100 h-100 rounded">
+                </div>
+                <div class="flex-grow-1 overflow-y-hidden d-flex align-items-center position-relative h-120">
+                    <div class="p-10 w-full m-auto">
+                        <p class="font-size-10 text-dark-lm text-light-dm m-0 mb-5 text-truncate font-weight-medium">
+                            {{project.name}}
+                        </p>
+                        <p class="font-size-12 mt-5 mb-0">
+                            {{project.description|truncatechars:100}}
+                            <a class="text-primary text-smoothing-auto-dm d-inline-block" href="{% url 'development' %}">Development Page <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-12">
+            <div class="card">
+                <div class="card-title">
+                    What am I looking into next?
+                </div>
+                <div class="flex-grow-1 overflow-y-hidden d-flex align-items-center position-relative h-120">
+                    <div class="p-10 w-full m-auto">
+                        <p class="font-size-10 text-dark-lm text-light-dm m-0 mb-5 text-truncate font-weight-medium">
+                            
+                        </p>
+                        <p class="font-size-12 mt-5 mb-0">
+                            I'm looking to become better at front-end technologies, so diving into the deep end with React and Django Rest Framework to provide much better experience for
+                            end users.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block js %}
+{% endblock js %}

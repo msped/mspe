@@ -47,17 +47,17 @@
     <!-- Navbar end -->
 
     <div class="sidebar">
-      <div class="sidebar-menu align-middle">
-        <a href="{% url 'home' %}" class="sidebar-link text-center {% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a>
-        <a href="{% url 'development' %}" class="sidebar-link text-center {% if request.resolver_match.url_name == 'development' %}active{% endif %}">Development</a>
-        <a href="{% url 'contact' %}" class="sidebar-link text-center {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">Contact</a>
+      <div class="sidebar-menu align-middle text-center">
+        <a href="{% url 'home' %}" class="sidebar-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a>
+        <a href="{% url 'development' %}" class="sidebar-link {% if request.resolver_match.url_name == 'development' %}active{% endif %}">Development</a>
+        <a href="{% url 'contact' %}" class="sidebar-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">Contact</a>
         {% if request.user.is_authenticated %}
         <br/>
         <h5 class="sidebar-title text-center">Backend</h5>
         <div class="sidebar-divider"></div>
-        <a href="{% url 'all_projects' %}" class="sidebar-link text-center {% if request.resolver_match.url_name == 'all_projects' %}active{% endif %}">Project Manager</a>
-        <a href="{% url 'admin:index' %}" class="sidebar-link text-center">Admin</a>
-        <a href="{% url 'admin:logout' %}" class="sidebar-link text-center">Logout</a>
+        <a href="{% url 'all_projects' %}" class="sidebar-link {% if request.resolver_match.url_name == 'all_projects' %}active{% endif %}">Project Manager</a>
+        <a href="{% url 'admin:index' %}" class="sidebar-link">Admin</a>
+        <a href="{% url 'admin:logout' %}" class="sidebar-link">Logout</a>
         {% endif %}
       </div>
     </div>

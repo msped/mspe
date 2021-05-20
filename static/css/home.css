@@ -1,0 +1,5 @@
+div.card.h-400 {
+    background-image: url('/static/images/header.jpg');
+    background-color: #fff;
+    background-size: cover;
+}

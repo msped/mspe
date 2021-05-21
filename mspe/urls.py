@@ -25,4 +25,5 @@ urlpatterns = [
     path('dev/', include('development.urls')),
     path('contact/', include('contact.urls')),
     path('projects/', include('projects.urls')),
+    path('captcha/', include('captcha.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=MEDIA_ROOT)

@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'development',
     'contact',
     'projects',
+    'errors',
 ]
 
 MIDDLEWARE = [

@@ -44,3 +44,8 @@ urlpatterns = [
         TemplateView.as_view(template_name="robots.txt", content_type="text/plain"),
     ),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=MEDIA_ROOT)
+
+handler400 = 'errors.views.handler400'
+handler403 = 'errors.views.handler403'
+handler404 = 'errors.views.handler404'
+handler500 = 'errors.views.handler500'

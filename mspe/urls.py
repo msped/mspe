@@ -45,7 +45,7 @@ urlpatterns = [
     ),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=MEDIA_ROOT)
 
-handler400 = 'errors.views.handler400'
-handler403 = 'errors.views.handler403'
-handler404 = 'errors.views.handler404'
-handler500 = 'errors.views.handler500'
+handler400 = 'errors.views.handler400View'
+handler403 = 'errors.views.handler403View'
+handler404 = 'errors.views.handler404View'
+handler500 = 'errors.views.handler500View'

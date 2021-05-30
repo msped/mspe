@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+500 Internal
+{% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/error_page.css' %}">
+{% endblock css %}
+
+{% block content %}
+<div class="col-md-8 offset-md-2 col-12">
+    <div class="card">
+        <h2 class="staal">
+            500 Internal Server Error <i class="fas fa-server ml-15"></i>
+        </h2>
+        <p class="roboto">
+            Looks like something went wrong behind the scenes, a report has been sent.
+        </p>
+        <div class="mt-20">
+            <!-- text-right = text-align: right -->
+            <a href="{% url 'home' %}" class="btn btn-primary my-5">Return to Homepage.</a>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block js %}
+{% endblock js %}

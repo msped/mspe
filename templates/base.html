@@ -8,7 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
   <meta name="viewport" content="width=device-width" />
-  {% block fontawesome %}{% endblock fontawesome %}
+  <script defer src="https://kit.fontawesome.com/999af8025a.js"></script>
   <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
   {% block meta %}{% endblock meta %}
   <!-- Favicon and title -->
@@ -89,6 +89,18 @@
 
     <nav class="navbar navbar-fixed-bottom">
       <p>&#169; Matt Edwards, 2020</p>
+      <ul class="navbar-nav mt-lg-20 mt-md-15 mt-15 ml-auto">
+        <li class="nav-item mr-10">
+          <a href="https://github.com/msped" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        </li>
+        <li class="nav-item mr-10">
+          <a href="https://www.linkedin.com/in/mspe/" target="_blank">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </li>
+      </ul>
     </nav>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/js/halfmoon.js"></script>

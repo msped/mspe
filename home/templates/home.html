@@ -9,10 +9,6 @@ Full Stack Web Developer
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
 {% endblock css%}
 
-{% block fontawesome %}
-<script defer src="https://kit.fontawesome.com/999af8025a.js"></script>
-{% endblock fontawesome %}
-
 {% block meta %}
 <meta name="description" content="A Full Stack Developer based in the North West of England using the Python Web Framework
  Django to create functional, user-friendly web applications">
@@ -54,7 +50,7 @@ Full Stack Web Developer
                             <div class="col-md-4 col-12 px-5">
                                 <p class="font-size-12 mt-5 mb-0">
                                     I started my developer story in 2017 when I was filling in and printing off invoices for a friends garage everyday and 
-                                    thought "there has to be a better way to do this".
+                                    thought <q><em>there has to be a better way to do this</em></q>.
                                 </p>
                                 <p class="font-size-12 mt-5 mb-0"> 
                                     I then went about learning and building a very simple PHP application to be able to email PDF invoices to customers saving 
@@ -81,22 +77,31 @@ Full Stack Web Developer
         </div>
         <div class="col-md-6 col-12">
             <div class="card d-flex">
-                <div class="rounded d-flex align-items-center justify-content-center" style="background-color: white">
-                    <img src="{{project.logo.url}}" alt="{{project.name}}" class="d-block w-100 h-100 rounded">
-                </div>
-                <div class="flex-grow-1 overflow-y-hidden d-flex align-items-center position-relative h-120">
-                    <div class="p-10 w-full m-auto">
-                        <p class="font-size-10 text-dark-lm text-light-dm m-0 mb-5 text-truncate font-weight-medium">
-                            {{project.name}}
-                        </p>
-                        <p class="font-size-12 mt-5 mb-0">
-                            {{project.description|truncatechars:100}}
-                            <a class="text-primary text-smoothing-auto-dm d-inline-block mouse-pointer" href="{% url 'development' %}">
-                                Development Page <i class="fa fa-angle-right" aria-hidden="true"></i>
-                            </a>
-                        </p>
+                <div class="row">
+                    <div class="col-md-3 col-12">
+                        <div class="rounded d-flex align-items-center justify-content-center" style="background-color: white">
+                            <img src="{{project.logo.url}}" alt="{{project.name}}" class="d-block w-100 h-100 rounded">
+                        </div>
+                    </div>
+                    <div class="col-md-9 col-12">
+                        <div class="flex-grow-1 overflow-y-hidden d-flex align-items-center position-relative h-120">
+                            <div class="p-10 w-full m-auto">
+                                <p class="font-size-10 text-dark-lm text-light-dm m-0 mb-5 text-truncate font-weight-medium">
+                                    {{project.name}}
+                                </p>
+                                <p class="font-size-12 mt-5 mb-0">
+                                    {{project.description|truncatechars:100}}
+                                    <a class="text-primary text-smoothing-auto-dm d-inline-block mouse-pointer"
+                                        href="{% url 'development' %}">
+                                        Development Page <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                
+                
             </div>
         </div>
         <div class="col-md-6 col-12">

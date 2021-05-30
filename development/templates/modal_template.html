@@ -4,7 +4,7 @@
 </div>
 <br>
 <div class="font-size-18">
-    <h3 class="staal">Description</h3>
+    <h3 class="staal weight-700">Description</h3>
     {{dev.description|linebreaks}}
 </div>
 <hr>
@@ -22,9 +22,9 @@
     <div class="row">
         {% for t in tech %}
         {% if t.tech.more_info %}
-        <a href="{{ t.tech.more_info }}" target="_blank" class="text-decoration-none text-center font-weight-bold col-2 tech-element">{{ t.tech }}</a>
+        <a href="{{ t.tech.more_info }}" target="_blank" class="text-decoration-none text-center font-weight-bold col-md-2 col-3 tech-element">{{ t.tech }}</a>
         {% else %}
-        <div target="_blank" class="text-center font-weight-bold col-2 tech-element">{{ t.tech }}</div>
+        <div class="text-center font-weight-bold col-md-2 col-3 tech-element">{{ t.tech }}</div>
         {% endif %}
         {% empty %}
         <p class="col">No Technologies have been added yet.</p>

@@ -10,3 +10,14 @@
 .list-style-none {list-style: none;}
 textarea {resize: none;}
 .mouse-pointer {cursor: pointer;}
+.fab.fa-linkedin-in, i.fab.fa-github {
+    padding: 9px;
+    border-radius: 50%;
+    color: #fff;
+    background-color: #303235;
+    font-size: 14pt;
+    background-size: 0% 100%;
+    transition: background-size .5s, color, .5s;
+}
+.fab.fa-linkedin-in:hover {background-color: #0A66C2;}
+.fab.fa-github:hover {background-color: #161B22;}

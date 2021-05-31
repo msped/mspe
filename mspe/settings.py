@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'mspe.me', 'www.mspe.me']
+ALLOWED_HOSTS = ['127.0.0.1', 'mspe.me', 'www.mspe.me', os.environ.get('server_ip'),]
 
 SITE_ID = 1
 

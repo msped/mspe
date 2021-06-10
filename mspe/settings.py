@@ -166,7 +166,7 @@ LOGIN_URL = '/admin/login'
 if not DEBUG:
     import sentry_sdk
     from sentry_sdk.integrations.django import DjangoIntegration
-    STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+    STATIC_ROOT = os.path.join(BASE_DIR, "static")
     sentry_sdk.init(
         dsn=os.environ.get('sentry_dns'),
         integrations=[DjangoIntegration()],

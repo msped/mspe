@@ -21,3 +21,6 @@ textarea {resize: none;}
 }
 .fab.fa-linkedin-in:hover {background-color: #0A66C2;}
 .fab.fa-github:hover {background-color: #161B22;}
+@media screen and (max-width: 768px) {
+    .sidebar-link {font-size: 14pt;}
+}

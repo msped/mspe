@@ -44,7 +44,11 @@ Development
             <div class="card my-10 {% if forloop.counter|divisibleby:2 %}left{% else %}right{% endif %}">
                 <div class="row">
                     <div class="col-3 text-center">
-                        <img src="{{d.logo.url}}" class="img-fluid rounded" alt="">
+                        {% if d.logo %}
+                        <img src="{{d.logo.url}}" class="img-fluid rounded" alt="{{d.name}}">
+                        {% else %}
+                        <img src="{% static 'images/default.jpg' %}" class="img-fluid rounded" alt="No image for this project">
+                        {% endif %}
                     </div>
                     <div class="col-9">
                         <div class="ml-10">

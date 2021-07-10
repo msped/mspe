@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'mspe.me', 'www.mspe.me', os.environ.get('server_ip'),]
 
@@ -179,6 +179,7 @@ if not DEBUG:
     SECURE_SSL_REDIRECT = True
     SECURE_CONTENT_TYPE_NOSNIFF = True
     SECURE_BROWSER_XSS_FILTER = True
+    [('Matt', os.environ.get('EMAIL_HOST_USER')),]
 else:
     STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
 

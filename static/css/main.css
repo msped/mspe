@@ -10,7 +10,7 @@
 .list-style-none {list-style: none;}
 textarea {resize: none;}
 .mouse-pointer {cursor: pointer;}
-.fab.fa-linkedin-in, i.fab.fa-github {
+.fab.fa-linkedin-in, i.fab.fa-github, .fas.fa-file-download {
     padding: 9px;
     border-radius: 50%;
     color: #fff;
@@ -19,6 +19,7 @@ textarea {resize: none;}
     background-size: 0% 100%;
     transition: background-size .5s, color, .5s;
 }
+.fas.fa-file-download:hover {background-color: #6f73f7;}
 .fab.fa-linkedin-in:hover {background-color: #0A66C2;}
 .fab.fa-github:hover {background-color: #161B22;}
 @media screen and (max-width: 768px) {

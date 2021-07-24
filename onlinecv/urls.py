@@ -2,5 +2,5 @@ from django.urls import path
 from django.views.generic import TemplateView
 
 urlpatterns = [
-    path('', TemplateView.as_view(template_name="resume.html"), name="resume")
+    path('', TemplateView.as_view(template_name="cv.html"), name="cv")
 ]

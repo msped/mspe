@@ -7,11 +7,13 @@ from .settings import MEDIA_ROOT
 from django.views.generic.base import TemplateView
 from home.sitemaps import HomeStaticSitemap
 from development.sitemaps import DevelopmentSitemap
+from onlinecv.sitemaps import CVSitemap
 from contact.sitemaps import ContactSitemap
 
 sitemaps = {
     'home': HomeStaticSitemap,
     'developments': DevelopmentSitemap,
+    'cv': CVSitemap,
     'contact': ContactSitemap,
 }
 

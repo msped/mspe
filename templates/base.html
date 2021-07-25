@@ -53,6 +53,7 @@
       <div class="sidebar-menu align-middle text-center">
         <a href="{% url 'home' %}" class="sidebar-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a>
         <a href="{% url 'development' %}" class="sidebar-link {% if request.resolver_match.url_name == 'development' %}active{% endif %}">Development</a>
+        <a href="{% url 'cv' %}" class="sidebar-link {% if request.resolver_match.url_name == 'cv' %}active{% endif %}">CV</a>
         <a href="{% url 'contact' %}" class="sidebar-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">Contact</a>
         {% if request.user.is_authenticated %}
         <br/>

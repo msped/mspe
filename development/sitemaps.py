@@ -5,7 +5,7 @@ from django.urls import reverse
 class DevelopmentSitemap(Sitemap):
     priority = 0.8
 
-    def item(self):
+    def items(self):
         return ['development']
 
     def location(self, item):

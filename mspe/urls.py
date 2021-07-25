@@ -7,11 +7,13 @@ from .settings import MEDIA_ROOT
 from django.views.generic.base import TemplateView
 from home.sitemaps import HomeStaticSitemap
 from development.sitemaps import DevelopmentSitemap
+from onlinecv.sitemaps import CVSitemap
 from contact.sitemaps import ContactSitemap
 
 sitemaps = {
     'home': HomeStaticSitemap,
     'developments': DevelopmentSitemap,
+    'cv': CVSitemap,
     'contact': ContactSitemap,
 }
 
@@ -20,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls')),
     path('dev/', include('development.urls')),
+    path('cv/', include('onlinecv.urls')),
     path('contact/', include('contact.urls')),
     path('projects/', include('projects.urls')),
     path('captcha/', include('captcha.urls')),

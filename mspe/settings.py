@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'captcha',
     'home',
     'development',
+    'onlinecv',
     'contact',
     'projects',
     'errors',

@@ -1,12 +1,11 @@
-from django.contrib.admin.sites import site
 from django.contrib.sitemaps import Sitemap
 from django.urls import reverse
 
-class DevelopmentSitemap(Sitemap):
-    priority = 0.8
+class CVSitemap(Sitemap):
+    priority = 0.9
 
     def items(self):
-        return ['development']
-
+        return ['cv']
+    
     def location(self, item):
         return reverse(item)

@@ -22,7 +22,7 @@ class ContactView(View):
             email = form.cleaned_data['email']
             subject = form.cleaned_data['subject']
             message = form.cleaned_data['message']
-            message += f'\n \n \n From: {name}'
+            message += f'\n \n \n From: {name} \n Email: {email}'
             send_mail(
                 subject=subject,
                 message=message,

@@ -1,0 +1,7 @@
+Sitemap: https://mspe.me/sitemap/xml
+
+User-Agent: *
+Allow: /
+Disallow: /captcha
+Disallow: /projects
+Disallow: /admin

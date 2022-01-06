@@ -9,5 +9,8 @@ class OnlineCV(View):
     template_name = "cv.html"
 
     def get(self, request):
-        verification_code = Verification.objects.get(is_active=True)
+        try:
+            verification_code = Verification.objects.get(is_active=True)
+        except Verification.DoesNotExist:
+            verification_code = None
         return render(request, self.template_name, {'code': verification_code})

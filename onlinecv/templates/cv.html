@@ -220,8 +220,17 @@ You can download a copy of this at the bottom of the page.">
                     </div>
                 </div>
             </div>
+            
+            {% if code %}
+            <div class="col-12 my-15">
+                <div class="text-center">
+                    If you are contacting me please quote <i>'{{ code }}'</i> in your correspondence.
+                </div>
+            </div>
+            {% endif %}
+
             <div class="col-12 text-center">
-                <a data-toggle="modal" data-target="download-modal" class="btn btn-primary my-15" role="button">Dowload <i class="fas fa-download"></i></a>
+                <a data-toggle="modal" data-target="download-modal" class="btn btn-primary my-15" role="button">Download <i class="fas fa-download"></i></a>
             </div>
         </div>
     </div>

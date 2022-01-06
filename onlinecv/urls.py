@@ -1,6 +1,6 @@
 from django.urls import path
-from django.views.generic import TemplateView
+from .views import OnlineCV
 
 urlpatterns = [
-    path('', TemplateView.as_view(template_name="cv.html"), name="cv")
+    path('', OnlineCV.as_view(), name="cv")
 ]

@@ -1,6 +1,5 @@
 from django.contrib import admin
 from django.urls import path, include
-from django.contrib.sitemaps.views import sitemap
 from django.views.generic.base import TemplateView
 
 urlpatterns = [

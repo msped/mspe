@@ -30,8 +30,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'mspe.me', 'www.mspe.me', os.environ.get('server_ip'),]
 
-SITE_ID = 1
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -41,18 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites',
-    'django.contrib.sitemaps',
     'rest_framework',
     'corsheaders',
-    'django_forms_bootstrap',
-    'captcha',
     'home',
     'development',
     'onlinecv',
     'contact',
-    'projects',
-    'errors',
 ]
 
 MIDDLEWARE = [

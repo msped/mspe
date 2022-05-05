@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router-dom'
 import CustomTheme from './theme';
 
 import Header from './components/Header';
+import Home from './pages/home'
 import Footer from './components/Footer';
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
       <CssBaseline />
       <Header />
       <Routes>
-
+        <Route path="/" element={<Home />}/>
       </Routes>
       <Footer />
     </ThemeProvider>

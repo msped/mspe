@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Development, DevelopmentTech, Technologies
+from .models import Development, DevelopmentTech
 
 class DevelopmentTechSerializer(serializers.ModelSerializer):
     name = serializers.ReadOnlyField(source="tech.name")

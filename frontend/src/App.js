@@ -6,7 +6,7 @@ import { Route, Routes } from 'react-router-dom'
 import CustomTheme from './theme';
 
 import Header from './components/Header';
-import Home from './pages/home'
+import Home from './pages/Home'
 import Footer from './components/Footer';
 
 function App() {

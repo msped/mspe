@@ -61,7 +61,6 @@ export default function LatestProject() {
                 <Typography
                   variant="h5"
                   component="h3"
-                  color="text"
                   style={{ fontWeight: 500 }}
                 >
                   {project.name}

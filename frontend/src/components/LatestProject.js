@@ -43,7 +43,7 @@ export default function LatestProject() {
               >
                 <LazyLoad>
                   <img
-                    src={project.logo === "" ? default_img : project.logo}
+                    src={project.logo == null ? default_img : project.logo}
                     alt="Development Logo"
                     style={{
                       display: "block",

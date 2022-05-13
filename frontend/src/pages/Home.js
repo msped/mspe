@@ -21,7 +21,6 @@ export default function Home() {
             <Typography
                 variant="h3"
                 component="h1"
-                color="text"
                 style={{ fontWeight: 500 }}
             >
                 {props.children}
@@ -48,7 +47,6 @@ export default function Home() {
                             <Typography
                                 variant="h5"
                                 component="h1"
-                                color="text"
                                 style={{ fontWeight: 500 }}
                             >
                                 See my <Link href='/dev' underline='hover'>development projects.</Link>
@@ -67,12 +65,12 @@ export default function Home() {
                                     src={avatar}
                                     sx={{ width: 56, height: 56 }}
                                 />
-                                <Typography color="text" variant='h4'>About Me</Typography>
+                                <Typography variant='h4'>About Me</Typography>
                             </Stack>
 
                             <Grid container spacing={2}>
                                 <Grid item xs={12} sm={4}>
-                                    <Typography color="text" variant="body1">
+                                    <Typography variant="body1">
                                     A Full Stack Developer from the North West of England using the Python 
                                     Django Framework to create web applications. I primarily use the Django
                                     Framework when creating web applications however I do also have 
@@ -85,7 +83,7 @@ export default function Home() {
                                     </Typography>
                                 </Grid>
                                 <Grid item xs={12} sm={4}>
-                                    <Typography color="text" variant="body1">
+                                    <Typography variant="body1">
                                     I started my developer story in 2017 when I was filling in and printing 
                                     off invoices for a friends garage everyday and thought <i>"there has to be 
                                     a better way to do this"</i>.
@@ -97,7 +95,7 @@ export default function Home() {
                                     </Typography>
                                 </Grid>
                                 <Grid item xs={12} sm={4}>
-                                    <Typography color="text" variant="body1">
+                                    <Typography variant="body1">
                                     Once completing this web application seeing what I had built was being used 
                                     and the knowledge I had gethered I decided this is what I wanted to do for 
                                     a living, <b>software development</b>. In late 2018 I enrolled with 
@@ -129,7 +127,6 @@ export default function Home() {
                                 <Typography 
                                     variant="h5"
                                     component="h4"
-                                    color="text"
                                     style={{ fontWeight: 500 }}
                                 >
                                     Want a copy of my CV?
@@ -137,7 +134,6 @@ export default function Home() {
                                 <Typography
                                     variant="h5"
                                     component="h4"
-                                    color="text"
                                     style={{ fontSize: 14 }}
                                 >
                                     You can view and download a copy of my <Link href="/cv" underline='hover'>CV here.</Link> Please make sure to read the full page.

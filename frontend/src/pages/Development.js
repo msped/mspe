@@ -29,7 +29,7 @@ export default function Development() {
                     <Typography color="text" variant="h2" component="h1" sx={{ fontWeight: 500 }}>
                         Development
                     </Typography>
-                    <Typography color="text" variant='body1' fontWeight={500}>
+                    <Typography color="text" variant='body1' fontWeight={500} sx={{ textAlign: 'center' }}>
                         Here you can see all my development projects, click on them to find out more!
                     </Typography>
                 </Stack>

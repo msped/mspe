@@ -65,7 +65,7 @@ export default function Home() {
                                     src={avatar}
                                     sx={{ width: 56, height: 56 }}
                                 />
-                                <Typography variant='h4'>About Me</Typography>
+                                <Typography variant='h4' fontWeight={500}>About Me</Typography>
                             </Stack>
 
                             <Grid container spacing={2}>

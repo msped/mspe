@@ -5,10 +5,10 @@ import Box from '@mui/material/Box'
 
 export default function ProfessionalExperience() {
   return (
-    <Grid container item xs={12}>
+    <Grid container item xs={12} spacing={3}>
       <Grid item xs={12}>
         <Box sx={{ textAlign: "center" }}>
-          <Typography fontWeight={500} variant="h3" component="div">
+          <Typography fontWeight={500} variant="h4" component="div">
             Professional Experience
           </Typography>
         </Box>

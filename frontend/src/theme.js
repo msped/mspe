@@ -26,7 +26,9 @@ export default function CustomTheme() {
                 contrastText: "#ffffff",
             },
             link: '#C5C6C7',
-            text: '#CCCCCC',
+            text: {
+                primary : '#CCCCCC'
+            }
         },
         overrides: {
             MuiAppBar: {

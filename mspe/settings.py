@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'development',
+    'onlinecv',
     'contact',
     'django_cleanup.apps.CleanupConfig',
 ]

@@ -6,7 +6,7 @@ import Box from '@mui/material/Box'
 
 export default function QualificationsProfile() {
     return (
-        <Grid item xs={12} spacing={3}>
+        <Grid item xs={12}>
             <Stack direction="column" gap={2}>
                 <Box sx={{ textAlign: "center" }}>
                     <Typography fontWeight={500} variant="h4" component="div">
@@ -55,7 +55,7 @@ export default function QualificationsProfile() {
                 </ul>
                 <Stack direction="column" gap={2}>
                     <Typography sx={{ textDecoration: 'underline' }}>Technologies:</Typography>
-                        <table class="table">
+                        <table>
                             <tbody>
                                 <tr>
                                     <td>Environments:</td>

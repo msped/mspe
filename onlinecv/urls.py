@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import OnlineCV
+from .views import VerificationCode
 
 urlpatterns = [
-    path('', OnlineCV.as_view(), name="cv")
+    path('', VerificationCode.as_view(), name="cv")
 ]

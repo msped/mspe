@@ -26,11 +26,10 @@ export default function DevelopmentProjects() {
                     </Typography>
                     <ul>
                         <li>
-                            A Django and live version of 
-                            <Link 
-                            href="https://github.com/msped/AutoLog" 
-                            underline='hover'
-                            target="_blank">
+                            A Django and live version of <Link 
+                                href="https://github.com/msped/AutoLog" 
+                                underline='hover'
+                                target="_blank">
                                 AutoLog
                             </Link> deployed on a DigitalOcean Ubuntu Server.
                         </li>

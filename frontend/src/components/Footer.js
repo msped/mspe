@@ -27,6 +27,7 @@ function Copyright() {
 
 export default function Footer() {
     return (
+        <React.Fragment>
         <AppBar
             position="fixed"
             color="inherit"
@@ -44,5 +45,7 @@ export default function Footer() {
                 </Stack>
             </Toolbar>
         </AppBar>
+        <Toolbar />
+        </React.Fragment>
     )
 }

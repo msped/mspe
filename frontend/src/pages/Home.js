@@ -98,8 +98,7 @@ export default function Home() {
                                     <Typography variant="body1">
                                     Once completing this web application seeing what I had built was being used 
                                     and the knowledge I had gethered I decided this is what I wanted to do for 
-                                    a living, <b>software development</b>. In late 2018 I enrolled with 
-                                    <Link href="https://codeinstitute.net/" target="_blank" underline="hover">Code Institute
+                                    a living, <b>software development</b>. In late 2018 I enrolled with <Link href="https://codeinstitute.net/" target="_blank" underline="hover">Code Institute
                                         <OpenInNewIcon sx={{ fontSize: 18 }}/>
                                     </Link> on the Full Stack Software Development course which I at the end I earned First Class Honours🎓.
                                     <br /><br/>

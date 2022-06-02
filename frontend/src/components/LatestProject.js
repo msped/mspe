@@ -1,4 +1,4 @@
-import axios from 'axios'
+import Api from '../Api'
 import React, { useState, useEffect } from 'react'
 import {
     Card,
@@ -19,9 +19,7 @@ export default function LatestProject() {
 
     useEffect(() => {
       const search = async () => {
-        const { data } = await axios.get(
-          "http://127.0.0.1:8000/api/dev/latest/"
-        );
+        const { data } = await Api.get("/dev/latest/");
         setProject(data)
       };
       search();

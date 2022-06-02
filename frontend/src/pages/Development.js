@@ -1,4 +1,4 @@
-import axios from 'axios'
+import Api from '../Api'
 import React, { useState, useEffect } from 'react'
 import {
     Container,
@@ -14,9 +14,7 @@ export default function Development() {
 
     useEffect(() => {
         const search = async () => {
-            const { data } = await axios.get(
-                "http://127.0.0.1:8000/api/dev/"
-            );
+            const { data } = await Api.get("/dev/");
             setProjects(data)
         };
         search();

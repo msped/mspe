@@ -9,6 +9,7 @@ import Header from './components/Header';
 import Home from './pages/Home'
 import Development from './pages/Development';
 import CV from './pages/CV'
+import Contact from './pages/Contact'
 import Footer from './components/Footer';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/" element={<Home />}/>
         <Route path="/dev" element={<Development />}/>
         <Route path="/cv" element={<CV />}/>
+        <Route path="/contact" element={<Contact />}/>
       </Routes>
       <Footer />
     </ThemeProvider>

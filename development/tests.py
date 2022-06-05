@@ -2,7 +2,6 @@ import json
 import shutil
 import tempfile
 from django.test import TestCase, override_settings
-from django.core.files.uploadedfile import SimpleUploadedFile
 from .models import Development, Technologies, DevelopmentTech
 from .apps import DevelopmentConfig
 
@@ -17,19 +16,14 @@ class TestDevelopementApp(TestCase):
     def tearDownClass(cls):
         shutil.rmtree(MEDIA_ROOT, ignore_errors=True)
         super().tearDownClass()
-    
+
     def test_app_config(self):
         self.assertEqual('development', DevelopmentConfig.name)
 
     def development_model(self):
         """Test the developement model, working"""
-        image = SimpleUploadedFile(
-            "test.png",
-            b'abunchofbytes'
-        )
         dev = Development.objects.create(
             name='Development Story',
-            logo=image,
             description="Here's what I built",
             url='https://autoskunk.works/',
             github_link='https://github.com/msped/autoskunkworks',
@@ -40,7 +34,7 @@ class TestDevelopementApp(TestCase):
         self.assertEqual(dev.url, 'https://autoskunk.works/')
         self.assertEqual(dev.github_link, 'https://github.com/msped/autoskunkworks')
         self.assertEqual(dev.created_date, '2020-09-10')
-    
+
     def technologies_model(self):
         """Test the technologies model"""
         tech = Technologies.objects.create(
@@ -70,7 +64,7 @@ class TestDevelopementApp(TestCase):
             {
                 'id': 1,
                 'name': 'Development Story',
-                'logo': 'http://testserver/media/development_logos/test.png',
+                'logo': None,
                 'description': "Here's what I built",
                 'url': 'https://autoskunk.works/',
                 'github_link': 'https://github.com/msped/autoskunkworks',

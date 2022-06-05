@@ -11,7 +11,7 @@ export default function Header() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" color='inherit'>
-        <Toolbar>
+        <Toolbar id="back-to-top-anchor">
           <Sidebar />
           <Typography variant="h6" component="div" sx={{ flexGrow: 1, color: '#fff' }}>
             Matt Edwards

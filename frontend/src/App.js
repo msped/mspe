@@ -12,6 +12,7 @@ import CV from './pages/CV'
 import Contact from './pages/Contact'
 import Footer from './components/Footer';
 import NotFound from './pages/NotFound'
+import ScrollToTop from './components/ScrollToTop'
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/cv" element={<CV />}/>
         <Route path="/contact" element={<Contact />}/>
       </Routes>
+      <ScrollToTop />
       <Footer />
     </ThemeProvider>
   );

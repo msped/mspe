@@ -11,6 +11,8 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
+import Chip from '@mui/material/Chip'
+import Stack from '@mui/material/Stack'
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -105,20 +107,23 @@ export default function DetailDialog({ project }) {
               <Typography variant="subtitle2" fontWeight={400}>
                 Click on the technology to find out more!
               </Typography>
-              <Grid container spacing={2} py={2}>
+              <Stack direction="row" gap={2} py={2}>
                 {project.tech.map((tech) => (
-                  <Grid item xs={4} md={2} key="tech.name">
-                    <Link
-                      underline="none"
-                      color="inherit"
-                      href={tech.info}
-                      target='_blank'
-                    >
-                      {tech.name}
-                    </Link>
-                  </Grid>
+                  <Chip
+                    key={tech.name}
+                    component={Link}
+                    underlink="none"
+                    href={tech.info}
+                    target='_blank'
+                    label={tech.name}
+                    variant="filled"
+                    color="primary"
+                    sx={{
+                      cursor: 'pointer'
+                    }}
+                  />
                 ))}
-              </Grid>
+              </Stack>
             </Grid>
           </Grid>
         </Container>

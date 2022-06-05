@@ -1,16 +1,23 @@
-from django.shortcuts import render
-from django.views import View
+from rest_framework.generics import RetrieveAPIView
+from rest_framework.views import APIView
+from django.http import FileResponse
 
-from .models import Verification
+from .serializers import VerificationSerializer
+from .models import Verification, Resume
 
 # Create your views here.
 
-class OnlineCV(View):
-    template_name = "cv.html"
+class VerificationCode(RetrieveAPIView):
+    serializer_class = VerificationSerializer
 
+    def get_object(self):
+        return Verification.objects.get(is_active=True)
+
+class DownloadResume(APIView):
     def get(self, request):
-        try:
-            verification_code = Verification.objects.get(is_active=True)
-        except Verification.DoesNotExist:
-            verification_code = None
-        return render(request, self.template_name, {'code': verification_code})
+        queryset = Resume.objects.get(is_active=True)
+        file_handle = queryset.file.open()
+        response = FileResponse(file_handle, content_type='application/pdf')
+        response['Content-Disposition'] = 'attachment; filename=CV.pdf'
+        response['Content-Length'] = queryset.file.size
+        return response

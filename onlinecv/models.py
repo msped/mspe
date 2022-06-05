@@ -8,3 +8,10 @@ class Verification(models.Model):
 
     def __str__(self):
         return self.code
+
+class Resume(models.Model):
+    file = models.FileField(upload_to='cv')
+    is_active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.file.name

@@ -28,7 +28,13 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'mspe.me', 'www.mspe.me', os.environ.get('server_ip'),]
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'mspe.me',
+    'www.mspe.me',
+    os.environ.get('server_ip'),
+]
 
 # Application definition
 
@@ -39,9 +45,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary_storage',
+    'cloudinary',
     'rest_framework',
     'corsheaders',
     'development',
+    'onlinecv',
     'contact',
     'django_cleanup.apps.CleanupConfig',
 ]
@@ -133,6 +142,13 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
+DEFAULT_FILE_STORAGE='cloudinary_storage.storage.MediaCloudinaryStorage'
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.environ.get("CLOUD_NAME"), 
+    'API_KEY': os.environ.get("CLOUD_PUBLIC"),
+    'API_SECRET': os.environ.get("CLOUD_SECRET")
+}
 
 LOGIN_URL = '/admin/login'
 

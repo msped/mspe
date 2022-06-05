@@ -11,6 +11,7 @@ import Development from './pages/Development';
 import CV from './pages/CV'
 import Contact from './pages/Contact'
 import Footer from './components/Footer';
+import NotFound from './pages/NotFound'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <CssBaseline />
       <Header />
       <Routes>
+        <Route path="*" element={<NotFound />}/>
         <Route path="/" element={<Home />}/>
         <Route path="/dev" element={<Development />}/>
         <Route path="/cv" element={<CV />}/>

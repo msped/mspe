@@ -16,6 +16,7 @@ class Alert(models.Model):
         choices=SeverityChoices.choices, 
         default="1"
     )
+    active = models.BooleanField(default=True)
 
     def __str__(self):
         return f'{self.severity} - {self.message}'

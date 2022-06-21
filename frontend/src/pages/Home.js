@@ -1,5 +1,7 @@
-import React from 'react'
+import Api from '../Api'
+import React, { useState, useEffect } from 'react'
 import {
+    Box,
     Container,
     Card,
     CardContent,
@@ -8,6 +10,7 @@ import {
     Avatar,
     Stack,
     Link,
+    Alert,
 } from '@mui/material'
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import LatestProject from '../components/LatestProject'
@@ -15,6 +18,20 @@ import header from '../images/header.jpg'
 import avatar from '../images/avatar.jpg'
 
 export default function Home() {
+    const [alerts, setAlerts] = useState([])
+
+    useEffect(() => {
+        const search = async () => {
+            await Api.get("/alerts/").then((res) => {
+                if (res.status === 200) {
+                    setAlerts(res.data)
+                } else {
+                    setAlerts(null)
+                }
+            })
+        };
+        search();
+    }, []);
 
     const HeaderText = props => {
         return (
@@ -31,6 +48,24 @@ export default function Home() {
     return (
         <Container sx={{ marginY: 5}} maxWidth="xl">
             <Grid container spacing={3}>
+
+                {alerts !== null ?
+                <Grid item xs={12}>
+                    {alerts.map((alert) => (
+                        <Box p={1} key={alert.id}>
+                            <Alert severity={alert.severity_display} icon={false}>
+                                {alert.message}
+                            </Alert>
+                        </Box>
+                    ))
+                    
+                    }
+                </Grid>
+                :
+                ''
+                }
+                
+
                 {/* Jumbo */}
                 <Grid item xs={12}>
                     <Card style={{
@@ -44,6 +79,7 @@ export default function Home() {
                             <HeaderText>
                                 Hi, I'm Matt! <br /> A Full Stack Developer.
                             </HeaderText>
+                            {/* Image: https://pixabay.com/photos/astronomy-moon-cosmos-lunar-space-3120482/ */}
                             <Typography
                                 variant="h5"
                                 component="h1"

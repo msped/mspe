@@ -79,6 +79,7 @@ export default function Home() {
                             <HeaderText>
                                 Hi, I'm Matt! <br /> A Full Stack Developer.
                             </HeaderText>
+                            {/* Image: https://pixabay.com/photos/astronomy-moon-cosmos-lunar-space-3120482/ */}
                             <Typography
                                 variant="h5"
                                 component="h1"

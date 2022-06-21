@@ -36,10 +36,20 @@ export default function Footer() {
             <Toolbar>
                 {Copyright()}
                 <Stack direction="row" spacing={2} sx={{ marginX: 2 }}>
-                    <Link href='https://github.com/msped' target='_blank' color="link">
+                    <Link 
+                        href='https://github.com/msped' 
+                        target='_blank' 
+                        color="link"
+                        aria-label='GitHub'
+                    >
                         <GitHubIcon />
                     </Link>
-                    <Link href='https://www.linkedin.com/in/mspe/' target='_blank' color="link">
+                    <Link 
+                        href='https://www.linkedin.com/in/mspe/' 
+                        target='_blank' 
+                        color="link"
+                        aria-label='LinkedIn'
+                    >
                         <LinkedInIcon />
                     </Link>
                 </Stack>

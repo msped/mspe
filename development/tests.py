@@ -78,8 +78,31 @@ class TestDevelopementApp(TestCase):
             }
         )
 
+    def get_latest(self):
+        response = self.client.get('/api/dev/latest/')
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(
+            json.loads(response.content),
+            {
+                'id': 1,
+                'name': 'Development Story',
+                'logo': None,
+                'description': "Here's what I built",
+                'url': 'https://autoskunk.works/',
+                'github_link': 'https://github.com/msped/autoskunkworks',
+                'created_date': '2020-09-10',
+                'tech': [
+                    {
+                        'name':'Django',
+                        'info': 'https://www.djangoproject.com/'
+                    }
+                ]
+            }
+        )
+
     def test_in_order(self):
         self.development_model()
         self.technologies_model()
         self.developmenttech_model()
         self.get_project_request()
+        self.get_latest()

@@ -2,9 +2,13 @@ from rest_framework import serializers
 from .models import Alert
 
 class AlertSerializer(serializers.ModelSerializer):
+    severity_display = serializers.CharField(
+        source="get_severity_display"
+    )
+
     model = Alert
     fields = [
         'id',
-        'severity',
+        'severity_display',
         'message'
     ]

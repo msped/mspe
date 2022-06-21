@@ -6,9 +6,10 @@ class AlertSerializer(serializers.ModelSerializer):
         source="get_severity_display"
     )
 
-    model = Alert
-    fields = [
-        'id',
-        'severity_display',
-        'message'
-    ]
+    class Meta:
+        model = Alert
+        fields = [
+            'id',
+            'severity_display',
+            'message'
+        ]

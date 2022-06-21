@@ -169,8 +169,6 @@ if not DEBUG:
     SECURE_CONTENT_TYPE_NOSNIFF = True
     SECURE_BROWSER_XSS_FILTER = True
     ADMINS = [('Matt', os.environ.get('EMAIL_HOST_USER')),]
-else:
-    STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 

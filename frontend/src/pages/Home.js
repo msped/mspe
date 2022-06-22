@@ -20,6 +20,8 @@ import avatar from '../images/avatar.jpg'
 export default function Home() {
     const [alerts, setAlerts] = useState([])
 
+    document.title = "Full Stack Web Developer | Matt Edwards"
+
     useEffect(() => {
         const search = async () => {
             await Api.get("/alerts/").then((res) => {

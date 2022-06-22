@@ -14,7 +14,7 @@ import {
 } from '@mui/material'
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import LatestProject from '../components/LatestProject'
-import header from '../images/header.jpg'
+import LazyLoad from 'react-lazyload'
 import avatar from '../images/avatar.jpg'
 
 export default function Home() {
@@ -68,27 +68,31 @@ export default function Home() {
 
                 {/* Jumbo */}
                 <Grid item xs={12}>
-                    <Card style={{
-                        backgroundImage: `url(${header})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        height: '35rem',
-                        padding: '4.75rem'
-                    }}>
-                        <Stack direction="column" spacing={3}>
-                            <HeaderText>
-                                Hi, I'm Matt! <br /> A Full Stack Developer.
-                            </HeaderText>
-                            {/* Image: https://pixabay.com/photos/astronomy-moon-cosmos-lunar-space-3120482/ */}
-                            <Typography
-                                variant="h5"
-                                component="h1"
-                                style={{ fontWeight: 500 }}
-                            >
-                                See my <Link href='/dev' underline='hover'>development projects.</Link>
-                            </Typography>
-                        </Stack>
-                    </Card>
+                    <LazyLoad once>
+                        <Card 
+                            className="background-image"
+                            style={{
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center',
+                                height: '35rem',
+                                padding: '4.75rem'
+                            }}
+                        >
+                            <Stack direction="column" spacing={3}>
+                                <HeaderText>
+                                    Hi, I'm Matt! <br /> A Full Stack Developer.
+                                </HeaderText>
+                                {/* Image: https://pixabay.com/photos/astronomy-moon-cosmos-lunar-space-3120482/ */}
+                                <Typography
+                                    variant="h5"
+                                    component="h1"
+                                    style={{ fontWeight: 500 }}
+                                >
+                                    See my <Link href='/dev' underline='hover'>development projects.</Link>
+                                </Typography>
+                            </Stack>
+                        </Card>
+                    </LazyLoad>
                 </Grid>
 
                 {/* About Me */}

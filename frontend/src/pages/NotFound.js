@@ -7,10 +7,15 @@ import {
     CardContent,
     Stack
 } from '@mui/material'
+import { Helmet } from 'react-helmet-async'
 
 export default function NotFound() {
     return (
         <Container maxWidth="md" sx={{ marginTop: 5}}>
+            <Helmet>
+                <meta charSet='utf-8' />
+                <title>404 Page Not Found | Matt Edwards</title>
+            </Helmet>
             <Card sx={{ minHeight: '40vh'}}>
                 <CardContent>
                     <Stack direction="column" spacing={4}>

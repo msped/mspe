@@ -2,6 +2,7 @@
 import CssBaseline from '@mui/material/CssBaseline'
 import { ThemeProvider } from '@mui/material/styles'
 import { Route, Routes } from 'react-router-dom'
+import { HelmetProvider } from 'react-helmet-async'
 
 import CustomTheme from './theme';
 
@@ -16,6 +17,7 @@ import ScrollToTop from './components/ScrollToTop'
 
 function App() {
   return (
+    <HelmetProvider>
     <ThemeProvider theme={CustomTheme()}>
       <CssBaseline />
       <Header />
@@ -29,6 +31,7 @@ function App() {
       <ScrollToTop />
       <Footer />
     </ThemeProvider>
+    </HelmetProvider>
   );
 }
 

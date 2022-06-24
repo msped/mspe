@@ -14,7 +14,8 @@ import {
 } from '@mui/material'
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import LatestProject from '../components/LatestProject'
-import header from '../images/header.jpg'
+import LazyLoad from 'react-lazyload'
+import { Helmet } from 'react-helmet-async'
 import avatar from '../images/avatar.jpg'
 
 export default function Home() {
@@ -48,7 +49,13 @@ export default function Home() {
     return (
         <Container sx={{ marginY: 5}} maxWidth="xl">
             <Grid container spacing={3}>
-
+                <Helmet>
+                    <meta charSet='utf-8' />
+                    <title>Full Stack Web Developer | Matt Edwards</title>
+                    <meta name="description" content="A Full Stack Developer based in the North West of 
+                        England using the Python Web Framework Django to create functional, user-friendly 
+                        web applications"/>
+                </Helmet>
                 {alerts !== null ?
                 <Grid item xs={12}>
                     {alerts.map((alert) => (
@@ -68,27 +75,31 @@ export default function Home() {
 
                 {/* Jumbo */}
                 <Grid item xs={12}>
-                    <Card style={{
-                        backgroundImage: `url(${header})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        height: '35rem',
-                        padding: '4.75rem'
-                    }}>
-                        <Stack direction="column" spacing={3}>
-                            <HeaderText>
-                                Hi, I'm Matt! <br /> A Full Stack Developer.
-                            </HeaderText>
-                            {/* Image: https://pixabay.com/photos/astronomy-moon-cosmos-lunar-space-3120482/ */}
-                            <Typography
-                                variant="h5"
-                                component="h1"
-                                style={{ fontWeight: 500 }}
-                            >
-                                See my <Link href='/dev' underline='hover'>development projects.</Link>
-                            </Typography>
-                        </Stack>
-                    </Card>
+                    <LazyLoad once>
+                        <Card 
+                            className="background-image"
+                            style={{
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center',
+                                height: '35rem',
+                                padding: '4.75rem'
+                            }}
+                        >
+                            <Stack direction="column" spacing={3}>
+                                <HeaderText>
+                                    Hi, I'm Matt! <br /> A Full Stack Developer.
+                                </HeaderText>
+                                {/* Image: https://pixabay.com/photos/astronomy-moon-cosmos-lunar-space-3120482/ */}
+                                <Typography
+                                    variant="h5"
+                                    component="h1"
+                                    style={{ fontWeight: 500 }}
+                                >
+                                    See my <Link href='/dev' underline='hover'>development projects.</Link>
+                                </Typography>
+                            </Stack>
+                        </Card>
+                    </LazyLoad>
                 </Grid>
 
                 {/* About Me */}
@@ -101,7 +112,7 @@ export default function Home() {
                                     src={avatar}
                                     sx={{ width: 56, height: 56 }}
                                 />
-                                <Typography variant='h4' fontWeight={500}>About Me</Typography>
+                                <Typography variant='h4' component='h2' fontWeight={500}>About Me</Typography>
                             </Stack>
 
                             <Grid container spacing={2}>

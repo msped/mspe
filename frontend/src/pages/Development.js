@@ -7,6 +7,7 @@ import {
     Stack,
     Box,
 } from '@mui/material'
+import { Helmet } from 'react-helmet-async'
 import ProjectCard from '../components/ProjectCard'
 
 export default function Development() {
@@ -22,6 +23,12 @@ export default function Development() {
 
     return (
         <Container maxWidth="xl">
+            <Helmet>
+                <meta charSet='utf-8' />
+                <title>Development | Matt Edwards</title>
+                <meta name="description" content="Here you will find my previous development projects, 
+                whether they be commission work or just to learn new technologies."/>
+            </Helmet>
             <Box my={5}>
                 <Stack direction="column" gap={1} alignItems="center">
                     <Typography color="text" variant="h2" component="h1" sx={{ fontWeight: 500 }}>

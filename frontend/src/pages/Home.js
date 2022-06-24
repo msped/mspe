@@ -15,12 +15,11 @@ import {
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import LatestProject from '../components/LatestProject'
 import LazyLoad from 'react-lazyload'
+import { Helmet } from 'react-helmet-async'
 import avatar from '../images/avatar.jpg'
 
 export default function Home() {
     const [alerts, setAlerts] = useState([])
-
-    document.title = "Full Stack Web Developer | Matt Edwards"
 
     useEffect(() => {
         const search = async () => {
@@ -50,7 +49,13 @@ export default function Home() {
     return (
         <Container sx={{ marginY: 5}} maxWidth="xl">
             <Grid container spacing={3}>
-
+                <Helmet>
+                    <meta charSet='utf-8' />
+                    <title>Full Stack Web Developer | Matt Edwards</title>
+                    <meta name="description" content="A Full Stack Developer based in the North West of 
+                        England using the Python Web Framework Django to create functional, user-friendly 
+                        web applications"/>
+                </Helmet>
                 {alerts !== null ?
                 <Grid item xs={12}>
                     {alerts.map((alert) => (

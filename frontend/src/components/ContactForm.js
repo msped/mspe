@@ -33,12 +33,6 @@ export default function ContactForm() {
   const handleSubmit = async (event) => {
     event.preventDefault()
     const data = new FormData(event.currentTarget)
-    console.log({
-      name: data.get('name'),
-      email: data.get('email'),
-      subject: data.get('subject'),
-      message: data.get('message'),
-    })
     
     Api.post(
       '/contact/send/',
@@ -49,7 +43,7 @@ export default function ContactForm() {
       setAlert('success')
       handleSnackbar()
     }, (error) => {
-      setMessage(error)
+      setMessage("There was an error in sending your message.")
       setAlert('error')
       handleSnackbar()
     })
@@ -59,7 +53,6 @@ export default function ContactForm() {
   return (
     <Box
       component="form"
-      noValidate
       onSubmit={handleSubmit}
       sx={{ mt: 2, px: 2 }}
     >

@@ -7,7 +7,7 @@ import Box from '@mui/material/Box'
 
 export default function DevelopmentProjects() {
     return (
-        <Grid container item xs={12} spacing={3}>
+        <Grid container item xs={12} spacing={3} sx={{ margin: 2 }}>
             <Grid item xs={12}>
                 <Box sx={{ textAlign: "center" }}>
                     <Typography fontWeight={500} variant="h4" component="div">

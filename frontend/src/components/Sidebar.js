@@ -72,17 +72,6 @@ export default function Sidebar() {
                             </Link>
                         </ListItemText>
                     </ListItem>
-                    <ListItem>
-                        <ListItemText sx={{ textAlign: 'center' }}>
-                            <Link
-                                underline='none'
-                                color="link"
-                                href='/contact'
-                            >
-                                Contact
-                            </Link>
-                        </ListItemText>
-                    </ListItem>
                 </List>
             </Drawer>
         </React.Fragment>

@@ -6,5 +6,4 @@ urlpatterns = [
     path('api/alerts/', include('alerts.urls')),
     path('api/dev/', include('development.urls')),
     path('api/cv/', include('onlinecv.urls')),
-    path('api/contact/', include('contact.urls')),
 ]

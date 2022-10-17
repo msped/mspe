@@ -1,8 +1,8 @@
+import os
 from django.shortcuts import render
 from django.views.generic import View
 from django.http import HttpResponse
 from django.template.loader import render_to_string
-from django.contrib import messages
 from django.core.mail import send_mail
 from .forms import ContactForm
 
@@ -27,11 +27,11 @@ class ContactView(View):
                 subject=subject,
                 message=message,
                 from_email=email,
-                recipient_list=['matt@mspe.me',],
+                recipient_list=[os.environ.get('EMAIL_HOST_USER'),],
                 fail_silently=False
             )
             template = render_to_string('message_sent.html')
-            
+
         else:
             name = form['name'].value()
             email = form['email'].value()

@@ -36,14 +36,7 @@ export default function Footer() {
             <Toolbar>
                 {Copyright()}
                 <Stack direction="row" spacing={2} sx={{ marginX: 2 }}>
-                    <Link 
-                        href='https://github.com/msped' 
-                        target='_blank' 
-                        color="link"
-                        aria-label='GitHub'
-                    >
-                        <GitHubIcon />
-                    </Link>
+                    <Typography sx={{fontSize: 15, whiteSpace:'normal'}}>Want to contact me? Message me on LinkedIn</Typography>
                     <Link 
                         href='https://www.linkedin.com/in/mspe/' 
                         target='_blank' 
@@ -51,6 +44,14 @@ export default function Footer() {
                         aria-label='LinkedIn'
                     >
                         <LinkedInIcon />
+                    </Link>
+                    <Link 
+                        href='https://github.com/msped' 
+                        target='_blank' 
+                        color="link"
+                        aria-label='GitHub'
+                    >
+                        <GitHubIcon />
                     </Link>
                 </Stack>
             </Toolbar>

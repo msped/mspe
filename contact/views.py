@@ -23,13 +23,13 @@ class ContactView(View):
             subject = form.cleaned_data['subject']
             message = form.cleaned_data['message']
             message += f'\n \n \n From: {name} \n Email: {email}'
-            send_mail(
-                subject=subject,
-                message=message,
-                from_email=email,
-                recipient_list=[os.environ.get('EMAIL_HOST_USER'),],
-                fail_silently=False
-            )
+            # send_mail(
+            #     subject=subject,
+            #     message=message,
+            #     from_email=email,
+            #     recipient_list=[os.environ.get('EMAIL_HOST_USER'),],
+            #     fail_silently=False
+            # )
             template = render_to_string('message_sent.html')
 
         else:

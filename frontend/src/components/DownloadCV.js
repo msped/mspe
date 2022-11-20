@@ -1,66 +1,57 @@
-import Api from '../Api'
-import React, { useState, useEffect } from 'react'
-import Button from '@mui/material/Button'
-import Typography from '@mui/material/Typography'
-import Box from '@mui/material/Box'
-import Grid from '@mui/material/Grid'
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogTitle from '@mui/material/DialogTitle';
-import Slide from '@mui/material/Slide';
+import apiClient from "../api/apiClient";
+import React, { useState } from "react";
+import {
+    Button,
+    Typography,
+    Box,
+    Grid,
+    Dialog,
+    DialogActions,
+    DialogContent,
+    DialogTitle,
+    Slide,
+} from "@mui/material";
+import useGetCode from "../hooks/useGetCode";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
-  });
+});
 
 export default function DownloadCV() {
-    const [code, setCode] = useState([])
     const [open, setOpen] = useState(false);
+    const code = useGetCode();
 
     const toggleDialog = () => {
         setOpen(!open);
     };
 
     const handleDownload = async () => {
-        return Api.get('/cv/download/', { responseType: 'blob'})
+        return apiClient
+            .get("/cv/download/", { responseType: "blob" })
             .then((res) => {
-                const url = window.URL.createObjectURL( new Blob([res.data]))
-                const link = document.createElement('a')
-                link.href = url
-                link.setAttribute('download', 'CV.pdf')
-                document.body.appendChild(link)
-                link.click()
-                toggleDialog()
-            })
-    }
-
-    useEffect(() => {
-        const search = async () => {
-            const { data } = await Api.get(
-                "/cv/"
-            );
-            setCode(data)
-        };
-        search();
-    }, []);
+                const url = window.URL.createObjectURL(new Blob([res.data]));
+                const link = document.createElement("a");
+                link.href = url;
+                link.setAttribute("download", "CV.pdf");
+                document.body.appendChild(link);
+                link.click();
+                toggleDialog();
+            });
+    };
 
     return (
         <Grid item xs={12}>
             <Box>
                 <Grid container spacing={2}>
                     <Grid item xs={12}>
-                        <Typography sx={{ textAlign: 'center' }}>
-                            If you are contacting me please quote '{code.code}' in your 
-                            correspondence.
+                        <Typography sx={{ textAlign: "center" }}>
+                            If you are contacting me please quote '{code.code}'
+                            in your correspondence.
                         </Typography>
                     </Grid>
 
-                    <Grid item xs={12} sx={{ textAlign: 'center' }}>
-                        <Button 
-                            variant='contained'
-                            onClick={toggleDialog}
-                        >
+                    <Grid item xs={12} sx={{ textAlign: "center" }}>
+                        <Button variant="contained" onClick={toggleDialog}>
                             Download
                         </Button>
                     </Grid>
@@ -76,16 +67,20 @@ export default function DownloadCV() {
                     <DialogContent>
                         <Typography component="div">
                             <p>
-                                If you download my CV <strong>please read it through before contacting me 
-                                regarding a position or for a chat.</strong>
+                                If you download my CV{" "}
+                                <strong>
+                                    please read it through before contacting me
+                                    regarding a position or for a chat.
+                                </strong>
                             </p>
-                            <p style={{ textDecoration: 'underline' }}>
+                            <p style={{ textDecoration: "underline" }}>
                                 Just for thought if you're storing my CV
                             </p>
                             <p>
-                                Should you wish to retain my CV on file, you are required to inform the
-                                data subject (that's me!) how the information is going to be used as
-                                well as retained for.
+                                Should you wish to retain my CV on file, you are
+                                required to inform the data subject (that's me!)
+                                how the information is going to be used as well
+                                as retained for.
                             </p>
                         </Typography>
                     </DialogContent>
@@ -96,5 +91,5 @@ export default function DownloadCV() {
                 </Dialog>
             </Box>
         </Grid>
-    )
+    );
 }

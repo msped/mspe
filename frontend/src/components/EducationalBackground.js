@@ -42,7 +42,7 @@ export default function EducationalBackground() {
                         <Typography variant="h6" component="p">
                             <strong>Weaverham High School - 2008-2013</strong>
                         </Typography>
-                        <Typography variant="body1">GCCSEs</Typography>
+                        <Typography variant="body1">GCSEs</Typography>
                     </Box>
                 </Stack>
             </Box>

@@ -9,7 +9,6 @@ import {
     Link,
 } from "@mui/material";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import TextTruncate from "react-text-truncate";
 import default_img from "../images/default.jpg";
 import LazyLoad from "react-lazyload";
 import useGetLatestProject from "../hooks/useGetLatestProject";
@@ -62,13 +61,6 @@ export default function LatestProject() {
                             >
                                 {project.name}
                             </Typography>
-                            <TextTruncate
-                                line={2}
-                                element="p"
-                                truncateText="..."
-                                text={project.description}
-                                style={{ color: "#CCCCCC", fontSize: 14 }}
-                            />
                             <Link underline="hover" href="/dev">
                                 <Stack
                                     direction="row"

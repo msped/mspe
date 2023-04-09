@@ -2,7 +2,6 @@ import React from "react";
 import { Card, CardContent, Typography, Grid, Box } from "@mui/material";
 import DetailDialog from "../components/DetailDialog";
 import LazyLoad from "react-lazyload";
-import TextTruncate from "react-text-truncate";
 import default_img from "../images/default.jpg";
 
 export default function ProjectCard({ project }) {
@@ -35,15 +34,6 @@ export default function ProjectCard({ project }) {
                             <Typography variant="h5" component="h1">
                                 {project.name}
                             </Typography>
-                        </Grid>
-                        <Grid item xs={12}>
-                            <TextTruncate
-                                line={1}
-                                element="p"
-                                truncateText="..."
-                                text={project.description}
-                                style={{ color: "#CCCCCC", fontSize: 14 }}
-                            />
                         </Grid>
                         <Grid item xs={12}>
                             <Box sx={{ flexGrow: 1 }}>

@@ -1,5 +1,5 @@
 import apiClient from "../api/apiClient";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
     Button,
     Typography,
@@ -17,26 +17,38 @@ const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
 
+const styles = {
+    centerText: {
+        textAlign: 'center'
+    },
+    underline: {
+        textDecoration: 'underline'
+    }
+}
+
 export default function DownloadCV() {
     const [open, setOpen] = useState(false);
+    const [downloadURL, setDownloadURL] = useState('')
     const code = useGetCode();
 
     const toggleDialog = () => {
         setOpen(!open);
     };
 
+    useEffect(() => {
+        return () => window.URL.revokeObjectURL(downloadURL);
+    }, [downloadURL]);
+
     const handleDownload = async () => {
-        return apiClient
-            .get("/cv/download/", { responseType: "blob" })
-            .then((res) => {
-                const url = window.URL.createObjectURL(new Blob([res.data]));
-                const link = document.createElement("a");
-                link.href = url;
-                link.setAttribute("download", "CV.pdf");
-                document.body.appendChild(link);
-                link.click();
-                toggleDialog();
-            });
+        const res = await apiClient.get("/cv/download/", { responseType: "blob" });
+        const url = window.URL.createObjectURL(new Blob([res.data]));
+        const link = document.createElement("a");
+        setDownloadURL(url)
+        link.href = url;
+        link.setAttribute("download", "CV.pdf");
+        document.body.appendChild(link);
+        link.click();
+        toggleDialog()
     };
 
     return (
@@ -44,13 +56,13 @@ export default function DownloadCV() {
             <Box>
                 <Grid container spacing={2}>
                     <Grid item xs={12}>
-                        <Typography sx={{ textAlign: "center" }}>
+                        <Typography sx={{ ...styles.centerText }}>
                             If you are contacting me please quote '{code.code}'
                             in your correspondence.
                         </Typography>
                     </Grid>
 
-                    <Grid item xs={12} sx={{ textAlign: "center" }}>
+                    <Grid item xs={12} sx={{ ...styles.centerText }}>
                         <Button variant="contained" onClick={toggleDialog}>
                             Download
                         </Button>
@@ -73,7 +85,7 @@ export default function DownloadCV() {
                                     regarding a position or for a chat.
                                 </strong>
                             </p>
-                            <p style={{ textDecoration: "underline" }}>
+                            <p style={{ ...styles.underline }}>
                                 Just for thought if you're storing my CV
                             </p>
                             <p>

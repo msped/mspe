@@ -1,11 +1,20 @@
 import React from "react";
 import { Grid, Typography, Box } from "@mui/material";
 
+const styles = {
+    centerText: {
+        textAlign: 'center'
+    },
+    underline: {
+        textDecoration: 'underline'
+    }
+}
+
 export default function ProfessionalExperience() {
     return (
         <Grid container item xs={12} spacing={3}>
             <Grid item xs={12}>
-                <Box sx={{ textAlign: "center" }}>
+                <Box sx={{ ...styles.centerText }}>
                     <Typography fontWeight={500} variant="h4" component="div">
                         Professional Experience
                     </Typography>
@@ -13,7 +22,7 @@ export default function ProfessionalExperience() {
             </Grid>
 
             <Grid item xs={12} md={6}>
-                <Typography sx={{ textDecoration: "underline" }}>
+                <Typography sx={{ ...styles.underline }}>
                     Cheshire Police, Winsford
                 </Typography>
                 <div>
@@ -58,7 +67,7 @@ export default function ProfessionalExperience() {
             </Grid>
 
             <Grid item xs={12} md={6}>
-                <Typography sx={{ textDecoration: "underline" }}>
+                <Typography sx={{ ...styles.underline }}>
                     Asda, Winsford
                 </Typography>
                 <div>

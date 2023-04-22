@@ -30,7 +30,7 @@ class TestAlert(APITestCase):
         )
 
     def test_get_alert(self):
-        response = self.client.get("/api/alerts/")
+        response = self.client.get("/api/alerts")
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(
             json.loads(response.content),
@@ -45,5 +45,5 @@ class TestAlert(APITestCase):
         alert_1 = Alert.objects.get(active=True)
         alert_1.active = False
         alert_1.save()
-        response = self.client.get("/api/alerts/")
+        response = self.client.get("/api/alerts")
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)

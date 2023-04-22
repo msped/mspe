@@ -1,0 +1,5 @@
+[run]
+omit=./env*,*manage.py,*migrations*
+
+[report]
+omit=./env*,*manage.py,*migrations*,*settings.py

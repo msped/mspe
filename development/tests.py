@@ -57,7 +57,7 @@ class TestDevelopementApp(TestCase):
     def get_project_request(self):
         """Test the response from the get request for
         more information on a project"""
-        response = self.client.get('/api/dev/1/')
+        response = self.client.get('/api/dev/1')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(
             json.loads(response.content),
@@ -79,7 +79,7 @@ class TestDevelopementApp(TestCase):
         )
 
     def get_latest(self):
-        response = self.client.get('/api/dev/latest/')
+        response = self.client.get('/api/dev/latest')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(
             json.loads(response.content),

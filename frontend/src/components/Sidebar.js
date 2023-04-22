@@ -6,9 +6,10 @@ import {
     Link,
     IconButton,
     ListItemText,
-    ListItem,
-    List,
+    ListItemButton,
     Drawer,
+    List,
+    Grid,
 } from "@mui/material";
 
 export default function Sidebar() {
@@ -30,38 +31,30 @@ export default function Sidebar() {
                 <MenuIcon />
             </IconButton>
             <Drawer anchor="left" open={open} onClose={handleToggle}>
-                <Box>
-                    <IconButton
-                        onClick={handleToggle}
-                        m={2}
-                        sx={{ float: "right" }}
-                    >
-                        <ChevronLeftIcon sx={{ color: "#fff" }} />
-                    </IconButton>
+                <Box sx={{ width: 250, padding: 1 }} role="presentation">
+                    <Grid container spacing={0}>
+                        <Grid item xs={12}>
+                            <IconButton onClick={handleToggle} sx={{ float: 'right', cursor: 'pointer' }}>
+                                <ChevronLeftIcon sx={{ color: "#fff" }} />
+                            </IconButton>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <List>
+                                <ListItemButton component={Link} href="/">
+                                    <ListItemText primary="Home" sx={{ textAlign: "center" }} />
+                                </ListItemButton>
+                                <ListItemButton component={Link} href="/dev">
+                                    <ListItemText primary="Development" sx={{ textAlign: "center" }} />
+                                </ListItemButton>
+                                <ListItemButton component={Link} href="/cv">
+                                    <ListItemText primary="CV" sx={{ textAlign: "center" }} />
+                                </ListItemButton>
+                            </List>
+                        </Grid>
+                    </Grid>
+                    
+                    
                 </Box>
-                <List p={1} sx={{ minWidth: "250px" }}>
-                    <ListItem>
-                        <ListItemText sx={{ textAlign: "center" }}>
-                            <Link underline="none" color="link" href="/">
-                                Home
-                            </Link>
-                        </ListItemText>
-                    </ListItem>
-                    <ListItem sx={{ textAlign: "center" }}>
-                        <ListItemText>
-                            <Link underline="none" color="link" href="/dev">
-                                Development
-                            </Link>
-                        </ListItemText>
-                    </ListItem>
-                    <ListItem>
-                        <ListItemText sx={{ textAlign: "center" }}>
-                            <Link underline="none" color="link" href="/cv">
-                                CV
-                            </Link>
-                        </ListItemText>
-                    </ListItem>
-                </List>
             </Drawer>
         </React.Fragment>
     );

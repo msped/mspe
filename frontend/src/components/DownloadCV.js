@@ -40,7 +40,7 @@ export default function DownloadCV() {
     }, [downloadURL]);
 
     const handleDownload = async () => {
-        const res = await apiClient.get("/cv/download/", { responseType: "blob" });
+        const res = await apiClient.get("/cv/download", { responseType: "blob" });
         const url = window.URL.createObjectURL(new Blob([res.data]));
         const link = document.createElement("a");
         setDownloadURL(url)

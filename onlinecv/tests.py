@@ -20,7 +20,7 @@ class TestOnlineCV(TestCase):
         self.assertEqual(str(code), 'Hood')
 
     def get_code(self):
-        res = self.client.get('/api/cv/')
+        res = self.client.get('/api/cv')
         self.assertEqual(res.status_code, 200)
         self.assertEqual(
             json.loads(res.content),

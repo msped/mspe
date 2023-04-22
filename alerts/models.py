@@ -12,9 +12,9 @@ class Alert(models.Model):
 
     message = models.CharField(max_length=255)
     severity = models.CharField(
-        max_length=8, 
-        choices=SeverityChoices.choices, 
-        default="1"
+        max_length=8,
+        choices=SeverityChoices.choices,
+        default=SeverityChoices.ERROR
     )
     active = models.BooleanField(default=True)
 

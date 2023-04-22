@@ -23,9 +23,9 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 export default function DetailDialog({ project }) {
     const [open, setOpen] = useState(false);
 
-    let newExtraText = project.description
-        .split("\n")
-        .map((item, i) => <p key={i}>{item}</p>);
+    const newExtraText = project.description.split(/\s+/).map((item, i) => (
+        <p key={i}>{item}</p>
+    ));
 
     const buttonLink = (apiURL) => {
         if (apiURL) {
@@ -47,7 +47,7 @@ export default function DetailDialog({ project }) {
                 </Button>
             );
         }
-        return "";
+        return null;
     };
 
     const toggleDialog = () => {
@@ -82,7 +82,7 @@ export default function DetailDialog({ project }) {
                                 variant="h3"
                                 component="h1"
                                 fontWeight={500}
-                                sx={{ textAlign: "center" }}
+                                align="center"
                             >
                                 {project.name}
                             </Typography>
@@ -96,13 +96,13 @@ export default function DetailDialog({ project }) {
                             >
                                 Description
                             </Typography>
-                            <Typography pt={2} component="div">
+                            <Typography gutterBottom component="div">
                                 {newExtraText}
                             </Typography>
                         </Grid>
 
                         <Grid item xs={12}>
-                            <Box sx={{ textAlign: "center" }}>
+                            <Box textAlign="center">
                                 {buttonLink(project.url)}
                                 {buttonLink(project.github_link)}
                             </Box>

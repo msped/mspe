@@ -1,104 +1,73 @@
 import React from "react";
 import { Grid, Stack, Typography, Link, Box } from "@mui/material";
 
+const projectData = [
+    {
+        title: "AutoSkunkWorks",
+        tech: "buntu Server, Linux, Nginx, Postgres, Django, Bootstrap, HTML, CSS, JavaScript (jQuery)",
+        description: "A Django application for car enthusiasts in the management of their modified car builds.",
+        link: "https://github.com/msped/autoskunkworks"
+    },
+    {
+        title: "Check the Match",
+        tech: "HTML, CSS, React, Football API, React Router DOM, Material UI",
+        description: "A React Application to view football statistics without seeing the final score of a match.",
+        link: "https://github.com/msped/checkthematch"
+    },
+    {
+        title: "Project Parts",
+        tech: "PostgreSQL, Django, HTML, CSS, jQuery, AJAX, Stripe.js",
+        description: "An online competition for car modifications built in Pythons Django Framework.",
+        link: "https://github.com/msped/projectparts"
+    },
+]
+
+const styles = {
+    centerText: {
+        textAlign: 'center'
+    },
+    underline: {
+        textDecoration: 'underline'
+    }
+}
+
 export default function DevelopmentProjects() {
     return (
         <Grid container item xs={12} spacing={3} m={2}>
             <Grid item xs={12}>
-                <Box sx={{ textAlign: "center" }}>
+                <Box sx={{ ...styles.centerText }}>
                     <Typography fontWeight={500} variant="h4" component="div">
                         Software Development Projects
                     </Typography>
                 </Box>
             </Grid>
-            <Grid item xs={12} md={4}>
-                <Stack direction="column" gap={2}>
-                    <Typography sx={{ textDecoration: "underline" }}>
-                        AutoSkunkWorks
-                    </Typography>
-                    <Typography>
-                        Technologies: Ubuntu Server, Linux, Nginx, Postgres,
-                        Django, Bootstrap, HTML, CSS, JavaScript (jQuery)
-                    </Typography>
-                    <ul>
-                        <li>
-                            A Django and live version of{" "}
+
+            {projectData.map((project, index) => (
+                <Grid key={index} item xs={12} md={4}>
+                    <Stack direction="column" gap={2}>
+                        <Typography sx={{ ...styles.underline }}>
+                            {project.title}
+                        </Typography>
+                        <Typography>
+                            Technologies: {project.tech}
+                        </Typography>
+                        <ul>
+                            <li>
+                                {project.description}
+                            </li>
+                        </ul>
+                        <Stack direction="row" gap={2}>
                             <Link
-                                href="https://github.com/msped/AutoLog"
-                                underline="hover"
+                                href={project.link}
                                 target="_blank"
+                                underline="hover"
                             >
-                                AutoLog
-                            </Link>{" "}
-                            deployed on a DigitalOcean Ubuntu Server for the
-                            management of project car parts.
-                        </li>
-                    </ul>
-                    <Stack direction="row" gap={2}>
-                        <Link
-                            href="https://github.com/msped/autoskunkworks"
-                            target="_blank"
-                            underline="hover"
-                        >
-                            Github
-                        </Link>
+                                Github
+                            </Link>
+                        </Stack>
                     </Stack>
-                </Stack>
-            </Grid>
-
-            <Grid item xs={12} md={4}>
-                <Stack direction="column" gap={2}>
-                    <Typography sx={{ textDecoration: "underline" }}>
-                        Check the Match
-                    </Typography>
-                    <Typography>
-                        Technologies: HTML, CSS, React, Football API, React
-                        Router DOM, Material UI
-                    </Typography>
-                    <ul>
-                        <li>
-                            A React Application to view football statistics
-                            without seeing the final score of a match.
-                        </li>
-                    </ul>
-                    <Stack direction="row" gap={2}>
-                        <Link
-                            href="https://github.com/msped/checkthematch"
-                            target="_blank"
-                            underline="hover"
-                        >
-                            Github
-                        </Link>
-                    </Stack>
-                </Stack>
-            </Grid>
-
-            <Grid item xs={12} md={4}>
-                <Stack direction="column" gap={2}>
-                    <Typography sx={{ textDecoration: "underline" }}>
-                        Project Parts
-                    </Typography>
-                    <Typography>
-                        Technologies: PostgreSQL, Django, HTML, CSS, jQuery,
-                        AJAX, Stripe.js, Heroku
-                    </Typography>
-                    <ul>
-                        <li>
-                            An online competition for car modifications built in
-                            Pythons Django Framework.
-                        </li>
-                    </ul>
-                    <Stack direction="row" gap={2}>
-                        <Link
-                            href="https://github.com/msped/projectparts"
-                            target="_blank"
-                            underline="hover"
-                        >
-                            Github
-                        </Link>
-                    </Stack>
-                </Stack>
-            </Grid>
+                </Grid>
+            ))}
         </Grid>
     );
 }

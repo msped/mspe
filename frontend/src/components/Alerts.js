@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Grid, Box, Alert, Typography } from "@mui/material";
+import { Container, Grid, Box, Alert } from "@mui/material";
 import useGetAlerts from "../hooks/useGetAlerts";
 
 export default function Alerts() {
@@ -15,16 +15,12 @@ export default function Alerts() {
                                 severity={alert.severity_display}
                                 icon={false}
                             >
-                                <Typography fontWeight={450}>
-                                    {alert.message}
-                                </Typography>
+                                {alert.message}
                             </Alert>
                         </Box>
                     ))}
                 </Grid>
             </Grid>
         </Container>
-    ) : (
-        ""
-    );
+    ) : null;
 }

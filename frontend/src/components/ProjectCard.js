@@ -5,6 +5,7 @@ import LazyLoad from "react-lazyload";
 import default_img from "../images/default.jpg";
 
 export default function ProjectCard({ project }) {
+    const { name, logo } = project
     return (
         <Card>
             <CardContent>
@@ -13,11 +14,7 @@ export default function ProjectCard({ project }) {
                         <LazyLoad>
                             <Box sx={{ textAlign: "center" }}>
                                 <img
-                                    src={
-                                        project.logo == null
-                                            ? default_img
-                                            : project.logo
-                                    }
+                                    src={logo ? logo : default_img}
                                     alt="Development Logo"
                                     style={{
                                         height: "auto",
@@ -32,7 +29,7 @@ export default function ProjectCard({ project }) {
                     <Grid container item xs={8} sm={12} md={8} spacing={2}>
                         <Grid item xs={12}>
                             <Typography variant="h5" component="h1">
-                                {project.name}
+                                {name}
                             </Typography>
                         </Grid>
                         <Grid item xs={12}>

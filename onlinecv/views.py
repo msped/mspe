@@ -1,4 +1,7 @@
+from django.shortcuts import get_object_or_404
 from rest_framework.generics import RetrieveAPIView
+from rest_framework.response import Response
+from rest_framework import status
 from rest_framework.views import APIView
 from django.http import FileResponse
 
@@ -15,9 +18,9 @@ class VerificationCode(RetrieveAPIView):
 
 class DownloadResume(APIView):
     def get(self, request):
-        queryset = Resume.objects.get(is_active=True)
-        file_handle = queryset.file.open()
-        response = FileResponse(file_handle, content_type='application/pdf')
-        response['Content-Disposition'] = 'attachment; filename=CV.pdf'
-        response['Content-Length'] = queryset.file.size
+        resume = get_object_or_404(Resume, is_active=True)
+        with resume.file.open(mode='rb') as file_handle:
+            response = FileResponse(file_handle, content_type='application/pdf')
+            response['Content-Disposition'] = 'attachment; filename=CV.pdf'
+            response['Content-Length'] = resume.file.size
         return response

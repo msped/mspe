@@ -52,8 +52,6 @@ export default function Sidebar() {
                             </List>
                         </Grid>
                     </Grid>
-                    
-                    
                 </Box>
             </Drawer>
         </React.Fragment>

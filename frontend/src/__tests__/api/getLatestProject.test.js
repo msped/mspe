@@ -1,7 +1,7 @@
 import getLatestProject from "../../api/getLatestProject";
 
 describe("getLatestProject function", () => {
-    it("returns an array of alerts", async () => {
+    it("returns an an object for the latest project", async () => {
         const latestProject = await getLatestProject();
         expect(latestProject).toEqual({
             "created_date": "23-04-09",

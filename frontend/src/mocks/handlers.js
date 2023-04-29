@@ -21,7 +21,11 @@ export const handlers = [
     rest.get(`${apiConstant}/cv`, (req, res, ctx) => {
         return res(
             ctx.status(200),
-            ctx.json({"code": "Hood"})
+            ctx.json([
+                {
+                    "code": "Hood"
+                }
+            ])
         )
     }),
 

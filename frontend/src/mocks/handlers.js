@@ -1,9 +1,10 @@
 import { rest } from 'msw'
 
-const apiConstant = 'http://localhost:8000';
+const apiConstant = 'http://localhost:8000/api';
 
 export const handlers = [
-    rest.get(`${apiConstant}/api/alerts`, (req, res, ctx) => {
+    // Get Alerts API Mock
+    rest.get(`${apiConstant}/alerts`, (req, res, ctx) => {
         return res(
             ctx.status(200),
             ctx.json([
@@ -14,5 +15,14 @@ export const handlers = [
                 },
             ])
         )
+    }),
+
+    // Get Code API Mock
+    rest.get(`${apiConstant}/cv`, (req, res, ctx) => {
+        return res(
+            ctx.status(200),
+            ctx.json({"code": "Hood"})
+        )
     })
+
 ]

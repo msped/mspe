@@ -23,10 +23,6 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 export default function DetailDialog({ project }) {
     const [open, setOpen] = useState(false);
 
-    const newExtraText = project.description.split(/\s+/).map((item, i) => (
-        <p key={i}>{item}</p>
-    ));
-
     const buttonLink = (apiURL) => {
         if (apiURL) {
             const url = new URL(apiURL);
@@ -96,8 +92,12 @@ export default function DetailDialog({ project }) {
                             >
                                 Description
                             </Typography>
-                            <Typography gutterBottom component="div">
-                                {newExtraText}
+                            <Typography
+                                gutterBottom 
+                                component="div"
+                                sx={{whiteSpace: 'pre-wrap'}}
+                            >
+                                {project.description}
                             </Typography>
                         </Grid>
 

@@ -8,12 +8,12 @@ function Copyright() {
         <Typography
             variant="body1"
             sx={{
-                color: "link",
+                color: "#C5C6C7",
                 flexGrow: 1,
             }}
         >
             {"© "}
-            <Link sx={{ color: "link" }} underline="none" href="/">
+            <Link sx={{ color: "#C5C6C7" }} underline="none" href="/">
                 Matt Edwards
             </Link>{" "}
             {new Date().getFullYear()}
@@ -41,7 +41,7 @@ export default function Footer() {
                         <Link
                             href="https://www.linkedin.com/in/mspe/"
                             target="_blank"
-                            color="link"
+                            color="#C5C6C7"
                             aria-label="LinkedIn"
                         >
                             <LinkedInIcon />
@@ -49,7 +49,7 @@ export default function Footer() {
                         <Link
                             href="https://github.com/msped"
                             target="_blank"
-                            color="link"
+                            color="#C5C6C7"
                             aria-label="GitHub"
                         >
                             <GitHubIcon />

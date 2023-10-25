@@ -6,3 +6,4 @@ htmlcov/
 .vscode/
 /media
 *.pdf
+data/

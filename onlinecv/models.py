@@ -7,4 +7,11 @@ class Verification(models.Model):
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
-        return self.code
+        return f'{self.code}'
+
+class Resume(models.Model):
+    file = models.FileField(upload_to='cv')
+    is_active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return f'{self.file.name}'

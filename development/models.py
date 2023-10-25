@@ -7,7 +7,7 @@ class Technologies(models.Model):
     more_info = models.URLField(blank=True, null=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
 class Development(models.Model):
     """Model for development projects"""
@@ -22,8 +22,8 @@ class Development(models.Model):
         ordering = ('-created_date',)
 
     def __str__(self):
-        return self.name
-        
+        return f'{self.name}'
+
 class DevelopmentTech(models.Model):
     """Link Tech to Development projects"""
     development = models.ForeignKey(Development, on_delete=models.CASCADE)

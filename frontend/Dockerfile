@@ -8,9 +8,9 @@ RUN npm install
 
 COPY . /mspe/frontend/
 
-# RUN npm run build
+RUN npm run build
 
-# RUN npm install -g serve
+RUN npm install -g serve
 
-CMD ["npm", "start"]
-# CMD serve -s build
+# CMD ["npm", "start"]
+CMD serve -s build

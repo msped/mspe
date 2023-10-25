@@ -7,3 +7,4 @@ htmlcov/
 /media
 *.pdf
 data/
+.DS_Store

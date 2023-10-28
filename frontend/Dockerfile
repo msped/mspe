@@ -1,16 +1,15 @@
 FROM node:18.15.0
 
-WORKDIR /mspe/frontend/
+WORKDIR /app
 
-COPY package.json /mspe/frontend/
-COPY package-lock.json /mspe/frontend/
+COPY package.json /app
 RUN npm install
 
-COPY . /mspe/frontend/
+COPY . .
 
 RUN npm run build
 
 RUN npm install -g serve
 
 # CMD ["npm", "start"]
-CMD serve -s build
+CMD ["serve", "-s", "build"]

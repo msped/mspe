@@ -7,9 +7,11 @@ from django.shortcuts import get_object_or_404
 from .serializers import DevelopmentListSerializer
 from .models import Development
 
+
 class DevelopmentView(ListAPIView):
     queryset = Development.objects.all()
     serializer_class = DevelopmentListSerializer
+
 
 class GetProject(RetrieveAPIView):
     queryset = Development.objects.all()
@@ -17,11 +19,14 @@ class GetProject(RetrieveAPIView):
     look_up_field = 'id'
 
     def get_object(self):
-        obj = get_object_or_404(self.get_queryset(), id=self.kwargs[self.lookup_field])
+        obj = get_object_or_404(self.get_queryset(),
+                                id=self.kwargs[self.lookup_field])
         return obj
+
 
 class GetLatest(APIView):
     def get(self, request):
         latest_project = Development.objects.order_by('-created_date').first()
-        serializer = DevelopmentListSerializer(latest_project)
+        serializer = DevelopmentListSerializer(
+            latest_project, context={'request': request})
         return Response(serializer.data, status=status.HTTP_200_OK)

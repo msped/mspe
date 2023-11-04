@@ -28,5 +28,5 @@ class GetLatest(APIView):
     def get(self, request):
         latest_project = Development.objects.order_by('-created_date').first()
         serializer = DevelopmentListSerializer(
-            latest_project, context={'request': request})
+            latest_project)
         return Response(serializer.data, status=status.HTTP_200_OK)

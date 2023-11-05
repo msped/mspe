@@ -23,7 +23,7 @@ export default function LatestProject() {
         <Card sx={{ minheight: 200 }}>
             <CardContent p={3}>
                 <Grid container spacing={3}>
-                    <Grid item xs={12} sm={3}>
+                    <Grid item xs={3}>
                         <Box
                             sx={{
                                 borderRadius: 2.5,
@@ -52,7 +52,7 @@ export default function LatestProject() {
                             </LazyLoad>
                         </Box>
                     </Grid>
-                    <Grid item xs={12} sm={9}>
+                    <Grid item xs={9}>
                         <Stack direction="column">
                             <Typography
                                 variant="h5"

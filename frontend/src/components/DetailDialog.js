@@ -78,6 +78,7 @@ export default function DetailDialog({ project }) {
                                 variant="h3"
                                 component="h1"
                                 fontWeight={500}
+                                mt={2}
                                 align="center"
                             >
                                 {project.name}
@@ -93,9 +94,9 @@ export default function DetailDialog({ project }) {
                                 Description
                             </Typography>
                             <Typography
-                                gutterBottom 
+                                gutterBottom
                                 component="div"
-                                sx={{whiteSpace: 'pre-wrap'}}
+                                sx={{ whiteSpace: "pre-wrap" }}
                             >
                                 {project.description}
                             </Typography>

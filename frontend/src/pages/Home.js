@@ -101,47 +101,43 @@ export default function Home() {
                                         West of England using the Python Django
                                         Framework to create web applications. I
                                         primarily use the Django Framework when
-                                        creating web applications however I do
-                                        also have exprience in using Flask but I
+                                        creating web applications; however, I
+                                        also have experience in using Flask. I
                                         am open to learning new frameworks and
                                         technologies.
                                         <br />
-                                        <br />
-                                        I'm currently looking into learning
-                                        React along side Django Rest Framework
-                                        to provide more visually pleasing and
-                                        functional applications for users.
-                                    </Typography>
-                                </Grid>
-                                <Grid item xs={12} sm={4}>
-                                    <Typography variant="body1">
-                                        I started my developer story in 2017
-                                        when I was filling in and printing off
-                                        invoices for a friends garage everyday
-                                        and thought{" "}
+                                        <br />I started my developer story in
+                                        2017 when I was filling in and printing
+                                        off invoices for a friend's garage every
+                                        day and thought,{" "}
                                         <i>
                                             "there has to be a better way to do
                                             this"
                                         </i>
                                         .
-                                        <br />
-                                        <br />I then went about learning and
-                                        building a very simple PHP application
-                                        to be able to email PDF invoices to
-                                        customers saving me & my friend time
-                                        from exchanging information and reducing
-                                        the amount of paper invoices being
-                                        produced.
                                     </Typography>
                                 </Grid>
                                 <Grid item xs={12} sm={4}>
                                     <Typography variant="body1">
-                                        Once completing this web application
-                                        seeing what I had built was being used
-                                        and the knowledge I had gethered I
-                                        decided this is what I wanted to do for
-                                        a living, <b>software development</b>.
-                                        In late 2018 I enrolled with{" "}
+                                        I then went about learning and building
+                                        a very simple PHP application to be able
+                                        to email PDF invoices to customers,
+                                        saving me and my friend time from
+                                        exchanging information and reducing the
+                                        number of paper invoices being produced.
+                                        <br />
+                                        <br />
+                                        Once I completed this web application
+                                        and saw that it was being used, and
+                                        considering the knowledge I had gathered
+                                        during its development, I decided that{" "}
+                                        <b>software development</b> is what I
+                                        wanted to do for a living.
+                                    </Typography>
+                                </Grid>
+                                <Grid item xs={12} sm={4}>
+                                    <Typography variant="body1">
+                                        In late 2018, I enrolled with{" "}
                                         <Link
                                             href="https://codeinstitute.net/"
                                             target="_blank"
@@ -153,15 +149,16 @@ export default function Home() {
                                             />
                                         </Link>{" "}
                                         on the Full Stack Software Development
-                                        course which I at the end I earned First
-                                        Class Honours🎓.
+                                        course, where I earned First Class
+                                        Honours🎓 at the end.
                                         <br />
                                         <br />
-                                        During the course I learnt fundamentals
-                                        in HTML, CSS, Javascript, & Python along
-                                        with associated web frameworks Flask and
-                                        Django. You can see projects I created
-                                        in this course (and out of it!) on the{" "}
+                                        During the course, I learned the
+                                        fundamentals of HTML, CSS, JavaScript,
+                                        and Python, along with associated web
+                                        frameworks Flask and Django. You can see
+                                        the projects I created in this course
+                                        (and out of it!) on the{" "}
                                         <Link underline="hover" href="/dev">
                                             Developments Page
                                         </Link>
@@ -180,7 +177,7 @@ export default function Home() {
 
                 {/* Want a Copy? */}
                 <Grid item xs={12} md={6}>
-                    <Card sx={{ minHeight: 175, paddingY: 1, paddingX: 2 }}>
+                    <Card sx={{ minHeight: 140, paddingY: 1, paddingX: 2 }}>
                         <CardContent>
                             <Stack direction="column" spacing={2}>
                                 <Typography

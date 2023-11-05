@@ -1,10 +1,10 @@
 import axios from "axios";
 
-const apiClient =  axios.create({
-    baseURL: "http://localhost:8000/api",
+const apiClient = axios.create({
+    baseURL: `${process.env.REACT_APP_API_HOST}/api`,
     headers: {
-        "Content-type": "application/json"
-    }
-})
+        "Content-type": "application/json",
+    },
+});
 
-export default apiClient
+export default apiClient;

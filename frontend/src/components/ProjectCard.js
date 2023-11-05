@@ -5,7 +5,7 @@ import LazyLoad from "react-lazyload";
 import default_img from "../images/default.jpg";
 
 export default function ProjectCard({ project }) {
-    const { name, logo } = project
+    const { name, logo } = project;
     return (
         <Card>
             <CardContent>
@@ -14,7 +14,7 @@ export default function ProjectCard({ project }) {
                         <LazyLoad>
                             <Box sx={{ textAlign: "center" }}>
                                 <img
-                                    src={logo ? logo : default_img}
+                                    src={logo == null ? default_img : logo}
                                     alt="Development Logo"
                                     style={{
                                         height: "auto",

@@ -30,7 +30,6 @@ export default function LatestProject() {
                                 display: "flex",
                                 alignItems: "center",
                                 justifyContent: "center",
-                                backgroundColor: "#fff",
                             }}
                         >
                             <LazyLoad>

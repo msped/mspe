@@ -158,9 +158,11 @@ if not DEBUG:
         traces_sample_rate=1.0,
         send_default_pii=True
     )
+
+    site_domain = os.environ.get('DOMAIN')
     CSRF_TRUSTED_ORIGINS = [
-        f'https://{os.environ.get('DOMAIN')}',
-        f'https://www.{os.environ.get('DOMAIN')}'
+        f'https://{site_domain}',
+        f'https://www.{site_domain}'
     ]
 
 REST_FRAMEWORK = {

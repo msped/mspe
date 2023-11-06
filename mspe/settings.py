@@ -158,6 +158,10 @@ if not DEBUG:
         traces_sample_rate=1.0,
         send_default_pii=True
     )
+    CSRF_TRUSTED_ORIGINS = [
+        f'https://{os.environ.get('mspe.me')}',
+        f'https://www.{os.environ.get('mspe.me')}'
+    ]
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [

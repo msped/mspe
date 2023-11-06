@@ -159,8 +159,8 @@ if not DEBUG:
         send_default_pii=True
     )
     CSRF_TRUSTED_ORIGINS = [
-        f'https://{os.environ.get('mspe.me')}',
-        f'https://www.{os.environ.get('mspe.me')}'
+        f'https://{os.environ.get('DOMAIN')}',
+        f'https://www.{os.environ.get('DOMAIN')}'
     ]
 
 REST_FRAMEWORK = {

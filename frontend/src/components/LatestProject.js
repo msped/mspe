@@ -30,6 +30,11 @@ export default function LatestProject() {
                                 display: "flex",
                                 alignItems: "center",
                                 justifyContent: "center",
+                                marginLeft: {
+                                    xs: "1rem",
+                                    sm: ".5rem",
+                                    md: "0rem",
+                                },
                             }}
                         >
                             <LazyLoad>

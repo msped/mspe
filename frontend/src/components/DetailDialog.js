@@ -32,6 +32,7 @@ export default function DetailDialog({ project }) {
                     href={apiURL}
                     variant="contained"
                     mx={2}
+                    target="_blank"
                     sx={{
                         color: "#fff",
                     }}

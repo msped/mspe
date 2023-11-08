@@ -121,7 +121,12 @@ export default function DetailDialog({ project }) {
                             <Typography variant="subtitle2" fontWeight={400}>
                                 Click on the technology to find out more!
                             </Typography>
-                            <Stack direction="row" gap={2} py={2}>
+                            <Stack
+                                direction="row"
+                                gap={2}
+                                py={2}
+                                flexWrap="wrap"
+                            >
                                 {project.tech.map((tech) => (
                                     <Chip
                                         key={tech.name}

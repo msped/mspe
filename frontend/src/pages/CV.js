@@ -34,13 +34,13 @@ export default function CV() {
                         <Typography fontWeight={400} variant="body2">
                             I'm a developer with experience in HTML, CSS, JS &
                             Django Framework obtained through the Code Institute
-                            Full Stack Developer Course. Since the end of this
-                            course, I have also been learning React and will
-                            soon be looking at implementing Docker into my
-                            projects. Currently, in a customer-facing data
-                            management role I'm keen to utilise my skills to
-                            provide great user experience and learn new
-                            technologies in the process.
+                            Full Stack Developer Course. Since completing that
+                            programme, I have focussed on enhancing my React
+                            knowledge and have started to incorporate Docker
+                            into my future projects. Currently, in a
+                            customer-facing data management role I'm keen to
+                            utilise my skills to provide greater user experience
+                            and learn new technologies in the process.
                         </Typography>
                     </Box>
                 </Grid>

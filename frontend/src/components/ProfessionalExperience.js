@@ -3,12 +3,12 @@ import { Grid, Typography, Box } from "@mui/material";
 
 const styles = {
     centerText: {
-        textAlign: 'center'
+        textAlign: "center",
     },
     underline: {
-        textDecoration: 'underline'
-    }
-}
+        textDecoration: "underline",
+    },
+};
 
 export default function ProfessionalExperience() {
     return (
@@ -35,14 +35,15 @@ export default function ProfessionalExperience() {
                     </p>
                     <p>
                         Serve as a proactive part of the team, managing,
-                        storing, and distributing highly sensitive technical
-                        files. Ensure storage and security of the sensitive data
-                        and confidential technical material. Build and maintain
-                        long-term professional relationships with third party
-                        offsite storage providers. Manage sensitive digitally
-                        recording interviews with stakeholders within courts,
-                        legal entities, state managed bodies, and solicitors in
-                        line with data protection legislation.
+                        storing, and distributing highly sensitive (personal
+                        data) technical files. Ensure storage and security of
+                        the sensitive data and confidential technical material.
+                        Build and maintain long-term professional relationships
+                        with third party offsite storage providers. Manage
+                        sensitive digitally recorded interviews with
+                        stakeholders within courts, legal entities, statutory
+                        bodies, and legal representatives in line with data
+                        protection legislation (GDPR).
                     </p>
                     <ul>
                         <li>
@@ -55,12 +56,12 @@ export default function ProfessionalExperience() {
                         </li>
                         <li>
                             Examined 800 media boxes prior to destruction to
-                            split serious crimes from volume crime.
+                            split 'serious crimes' from 'volume crime'.
                         </li>
                         <li>
-                            Slashed security incidents by updating metadata and
-                            forwarded information to information commissioner's
-                            office.
+                            Significantly reduced security incidents by updating
+                            metadata and forwarded information to Information
+                            Commissioner's Office.
                         </li>
                     </ul>
                 </div>
@@ -79,20 +80,20 @@ export default function ProfessionalExperience() {
                         <strong>Key Accomplishments</strong>
                     </p>
                     <p>
-                        Supported ample amount customers in shopping, educating
-                        them about product features and recommending products
-                        following their requirements. Developed and strengthened
-                        long-term professional relationships with all customers
-                        for repeat business. Supervised daily stock levels,
-                        ensured enough products were consistently available for
-                        the consumers and regularly checked and updated stock
-                        prices to ensure clarification at the front end for all
-                        consumers.
+                        Supported customers in their shopping experience,
+                        educating them about product features and recommending
+                        products that specifically matched their requirements.
+                        Developed and strengthened long-term professional
+                        relationships with all customers for repeat business.
+                        Supervised daily stock levels, ensured enough products
+                        were consistently available for the consumers and
+                        regularly checked and updated stock prices to ensure
+                        clarification 'at the front end' for all consumers.
                     </p>
                     <ul>
                         <li>
                             Rearranged 15 aisles within strict time frames
-                            (8pm-9am) to prepared plans for store reinvention
+                            (8pm-9am) to prepared plans for store reinvention.
                         </li>
                         <li>
                             Consistently met deadlines and targets ready for
@@ -101,7 +102,7 @@ export default function ProfessionalExperience() {
                         <li>
                             Accomplished customer satisfaction to a high level
                             by greeting customers and ensuring their needs were
-                            met.
+                            consistently met.
                         </li>
                     </ul>
                 </div>

@@ -19,7 +19,7 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     'mspe.me',
     'www.mspe.me',
-    os.environ.get('server_ip'),
+    os.environ.get('SERVER_IP'),
 ]
 
 # Application definition

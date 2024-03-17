@@ -5,4 +5,9 @@ env/
 htmlcov/
 .vscode/
 /media
-/media
+*.pdf
+data/
+.DS_Store
+/static
+/staticfiles
+/mediafiles

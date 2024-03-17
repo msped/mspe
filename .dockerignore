@@ -1,0 +1,9 @@
+env/
+.gitignore
+README.md
+htmlcov/
+.coverage
+.vscode/
+.github/
+frontend/
+nginx/

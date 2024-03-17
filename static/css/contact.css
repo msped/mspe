@@ -1,9 +1,0 @@
-input#id_captcha_1 {
-    width: 50%;
-    display: inline-block;
-    margin-left: 10px;
-}
-
-img.captcha {
-    width: 20%;
-}

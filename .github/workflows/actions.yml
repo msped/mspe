@@ -40,7 +40,7 @@ jobs:
               env:
                   SECRET_KEY: ${{ secrets.SECRET_KEY }}
                   SERVER_IP: ${{ secrets.SERVER_IP }}
-                  POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
+                  POSTGRES_POST: ${{ secrets.POSTGRES_PORT }}
                   POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
                   POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
                   DJANGO_SETTINGS_MODULE: ${{ secrets.DJANGO_SETTINGS_MODULE }}

@@ -13,6 +13,12 @@ sentry_sdk.init(
 )
 
 site_domain = os.environ.get('DOMAIN')
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost',
+    'http://127.0.0.1',
+]
+
 CSRF_TRUSTED_ORIGINS = [
     f'https://{site_domain}',
     f'https://www.{site_domain}'

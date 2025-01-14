@@ -44,10 +44,18 @@ services:
             - frontend_build:/var/www/frontend
             - static_volume:/var/www/backend/static
             - media_volume:/var/www/backend/media
+            - ./certbot/www:/var/www/certbot/:ro
+            - ./certbot/conf/:/etc/nginx/ssl/:ro
         depends_on:
             - db
             - backend
             - frontend
+
+    certbot:
+        image: certbot/certbot:latest
+        volumes:
+            - ./certbot/www/:/var/www/certbot/:rw
+            - ./certbot/conf/:/etc/letsencrypt/:rw
 
 volumes:
     frontend_build:
